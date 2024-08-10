@@ -1,0 +1,115 @@
+.notification {
+  /* A11y */
+  outline: none;
+  /* A11y */
+  padding: 15px;
+  margin: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.success {
+  background-color: #4caf50;
+}
+.info {
+  background-color: #2196f3;
+}
+.warning {
+  background-color: #ff9800;
+}
+.error {
+  background-color: #f44336;
+}
+
+/* Positioning */
+.top-right {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.top-left {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
+.bottom-right {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.bottom-left {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+.notification-container {
+  display: flex;
+  /* Stack notifications from bottom to top */
+  align-items: flex-end; /* Align notifications to the right */
+}
+
+.notification-container.bottom {
+  flex-direction: column-reverse;
+}
+.notification-container.top {
+  flex-direction: column;
+}
+/* Positioning */
+
+.closeBtn {
+  margin-left: 5px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s;
+}
+.popup {
+  animation: popup 0.5s ease-out;
+}
+.slideIn {
+  animation: slideIn 0.5s ease-out;
+}
+/* Animations */
