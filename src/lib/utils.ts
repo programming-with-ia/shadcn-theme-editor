@@ -1,10 +1,8 @@
 import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
 import { ReadonlyThemeWithHSLColor, type ShadCnPropritiesType, themeColors } from "./theme";
-import { type HslColor } from "@uiw/react-color";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return clsx(inputs);
 }
 
 export function getColors(colorAsHSL=false) {

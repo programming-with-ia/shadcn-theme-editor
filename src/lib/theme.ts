@@ -1,11 +1,7 @@
-import { HslColor } from "@uiw/react-color";
-
 export interface Theme {
   title: string;
   variable: string;
 }
-
-
 
 export const themeColors = [
   {
@@ -86,20 +82,10 @@ export const themeColors = [
   },
 ] as const;
 
-export type  ShadCnPropritiesType = typeof themeColors[number]["variable"]
-export type ReadonlyThemeWithColor = (typeof themeColors)[number] & {color: string}
-export type ReadonlyThemeWithHSLColor = (typeof themeColors)[number] & {color: HslColor}
-
-export const radiusTheme = {
-  title: "Radius",
-  variable: "--radius",
+export type ShadCnPropritiesType = (typeof themeColors)[number]["variable"];
+export type ReadonlyThemeWithColor = (typeof themeColors)[number] & {
+  color: string;
 };
-
-export type savedTheme = {
-  name: string;
-  radius: string;
-  colors: {
-    title: string;
-    variable: string;
-  }[];
+export type ReadonlyThemeWithHSLColor = (typeof themeColors)[number] & {
+  color: HslColor;
 };

@@ -1,3 +1,88 @@
-@tailwind base;
+/* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
+
+/* .btn {
+  @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+}
+.btn-default {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90;
+}
+.btn-destructive {
+  @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
+}
+.btn-outline {
+  @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+}
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+}
+.btn-ghost {
+  @apply hover:bg-accent hover:text-accent-foreground;
+}
+.btn-link {
+  @apply text-primary underline-offset-4 hover:underline;
+}
+
+.cn-container {
+  @apply fixed left-0 inset-y-0 z-30 hidden h-screen max-h-screen shrink-0 bg-background overflow-y-auto w-60;
+}
+.cn-container:not([hidden]) {
+  @apply md:grid;
+} */
+/* .cn-container > .scroller {
+    @apply h-full w-full overflow-y-scroll
+  } */
+
+/* .btn-padding {
+    @apply py-2 px-3
+}
+.editor-open-btn {
+  @apply fixed bottom-2 right-2 z-[35] opacity-50 hover:opacity-100;
+}
+
+.toolbar {
+  @apply flex items-center justify-between rounded-md px-2 py-1;
+}
+.toolbar > .toolContainer {
+  @apply flex gap-2;
+}
+.toolbar-btn {
+    @apply size-8
+}
+.color-container {
+    @apply pb-4 text-sm
+}
+
+.color-container > .btn {
+    @apply justify-start gap-2 w-full
+}
+
+.heading {
+  @apply text-sm font-semibold;
+} */
+
+
+
+
+.customScrollBar {
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.customScrollBar::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 0.25rem;
+}
+
+.customScrollBar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.customScrollBar::-webkit-scrollbar-thumb {
+    @apply bg-primary/10 rounded-full
+}
+.customScrollBar:hover::-webkit-scrollbar-thumb {
+    @apply bg-primary
+}

@@ -1,54 +1,44 @@
-import { ReadonlyThemeWithColor, ReadonlyThemeWithHSLColor, Theme, themeColors } from "../lib/theme";
-import React, { useCallback, useEffect, useState } from "react";
+import { ReadonlyThemeWithHSLColor } from "../lib/theme";
+import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import { ColorPicker } from "./color-picker";
-import {
-  // hslaToHsva,
-  // hsvaToHex,
-  // type ColorResult,
-  type HslColor,
-} from "@uiw/react-color";
-import { Label } from "./ui/label";
-import { useTheme } from "next-themes";
-import { getColors, getComputedHSLColor, setProperity, setStyleColor } from "../lib/utils";
+import { cn, setStyleColor } from "../lib/utils";
 import { useDebounceCallback } from "../hooks/useDebounceCallback";
-import { useMemo } from "react";
+import { colord } from "colord";
 
-export function Item({ theme, onSave }: { theme: ReadonlyThemeWithHSLColor, onSave: ()=> void }) {
-  // const { theme: currentTheme } = useTheme();
+export function Item({
+  theme,
+  onSave,
+}: {
+  theme: ReadonlyThemeWithHSLColor;
+  onSave: () => void;
+}) {
   const [color, setColor] = useState<HslColor>(theme.color);
-  const [isMount, setIsMount] = useState(false);
 
   useEffect(() => {
-    setColor(theme.color)
+    setColor(theme.color);
   }, [theme]);
-  const updateValue = useDebounceCallback(
-    () => {
-      setStyleColor(theme.variable, color);
-      // console.log("color apply", theme.variable)
-    },
-    0
-  );
+  const updateValue = useDebounceCallback(() => {
+    setStyleColor(theme.variable, color);
+    onSave();
+  }, 0);
 
   return (
-    <Button variant={"ghost"} className="justify-start flex gap-2 w-full transition-none" asChild>
+    <Button
+      variant={"colorbtn"}
+      asChild
+    >
       <div>
-        <ColorPicker
-          color={color}
-          // onMouseUp={onSave}
-          onColorChange={(color) => {
-            const hsl = color.hsl;
-            const c = {
-              h: Number(hsl.h.toFixed(2)),
-              s: Number(hsl.s.toFixed(2)),
-              l: Number(hsl.l.toFixed(2)),
-            };
-            setColor(c);
-            updateValue();
-            onSave()
-          }}
-        />
-        <Label className="flex-shrink-0">{theme.title}</Label>
+        <div className="relative overflow-hidden rounded border size-6 cursor-pointer">
+          <input
+            defaultValue={colord(color).toHex()}
+            type="color"
+            onChange={(e) => (
+              setColor(colord(e.target.value).toHsl()), updateValue()
+            )}
+            className="absolute cursor-pointer inset-1/2 size-[calc(100%+12px)] -translate-x-1/2 -translate-y-1/2 flex-shrink-0 bg-transparent"
+          />
+        </div>
+        <span className="flex-shrink-0">{theme.title}</span>
       </div>
     </Button>
   );

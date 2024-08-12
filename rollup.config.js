@@ -4,6 +4,7 @@ import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import terser from "@rollup/plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import banner2 from 'rollup-plugin-banner2'
 import tailwindcss from 'tailwindcss';
 
 import postcss from "rollup-plugin-postcss";
@@ -35,6 +36,7 @@ export default [
       postcss({
         plugins: [tailwindcss(tailwindConfig)],
       }),
+      banner2(()=>`"use client";\n`) // or use: https://github.com/Ephem/rollup-plugin-preserve-directives
     ],
     external: ["react", "react-dom"],
   },
