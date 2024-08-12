@@ -62,33 +62,21 @@ pnpm add shadcn-theme-editor --save-dev
 
 ## 📖 Usage
 
+**import default and add in `app/layout.tsx` file**
+
 > **Tip**  
 > It is preferable to use this component within the `ThemeProvider`, as follows:
 `import { ThemeProvider } from 'next-themes';`
 
-### for `Nextjs` projects
-
-create new file `shadcn-theme-editor.tsx`
-
 ```tsx
-"use client";
 import ThemeEditor from "shadcn-theme-editor";
-
-function ShadcnThemeEditor() {
-  return (
-    <>
-        <ThemeEditor />
-    </>
-  )
-}
-
-export default ShadcnThemeEditor
 ```
 
-then import this component in `layout` file,
+and use
 
-preferably under the `ThemeProvider`, as follows:
-`import { ThemeProvider } from 'next-themes';`
+```tsx
+<ThemeEditor />
+```
 
 ## 📄 License
 
