@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 function EditorOpenBtn() {
   const [IsOpen, setIsOpen] = useState(false);
   return (
-    <div data-shadcn-theme-editor>
+    <div id="shadcn-theme-editor">
       <Button
         onClick={() => setIsOpen(!IsOpen)}
         className="fixed bottom-2 right-2 z-[35] opacity-50 hover:opacity-100"

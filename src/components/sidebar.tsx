@@ -12,7 +12,10 @@ export function Sidebar({ isOpen }: { isOpen: boolean }) {
         isOpen && "md:block"
       )}
     >
-      <div className="mb-1 flex items-center justify-between rounded-md px-2 py-1 text-sm font-semibold">
+      <div className="mb-1 flex items-center px-2 py-1 font-semibold">
+        Shadcn Theme Editor
+      </div>
+      <div className="mb-1 flex items-center justify-between px-2 py-1 text-sm font-semibold">
         Theming
         <div className="flex gap-2">
           <ResetTheme />
