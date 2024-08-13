@@ -18,22 +18,16 @@ const tailwindConfig = require('./tailwind.config.js');
 export default [
   {
     input: "src/index.ts",
-    // preserveModules: true,
-    treeshake: true,
     output: [
       {
-        // file: packageJson.main,
-        dir: "./dist/cjs",
+        file: packageJson.main,
         format: "cjs",
         sourcemap: true,
-        inlineDynamicImports: false,
       },
       {
-        // file: packageJson.module,
-        dir: "./dist/esm",
+        file: packageJson.module,
         format: "esm",
         sourcemap: true,
-        inlineDynamicImports: false,
       },
 
     ],
