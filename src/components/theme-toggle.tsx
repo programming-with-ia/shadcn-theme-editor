@@ -6,7 +6,6 @@ import { SVGProps, useEffect, useRef, useState } from "react";
 export default function ThemeToggle() {
     const { theme, setTheme } = useTheme();
     const [CurrentTheme, setCurrentTheme] = useState<string|undefined>();
-    console.log(theme, setTheme)
     useEffect(() => {
         console.log(theme)
         setCurrentTheme(theme)

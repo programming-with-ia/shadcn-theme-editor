@@ -20,7 +20,14 @@ const ZodTheme = z.array(
 );
 
 function SideBarColors() {
-  const { resolvedTheme: currentTheme } = useTheme();
+  // const { resolvedTheme: currentTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
+
+  const [currentTheme, setCurrentTheme] = useState<string | undefined>();
+  useEffect(() => {
+    setCurrentTheme(resolvedTheme)
+  }, [resolvedTheme]);
+
   const [colors, setColors] = useState<ReadonlyThemeWithHSLColor[] | undefined>(
     undefined
   );
