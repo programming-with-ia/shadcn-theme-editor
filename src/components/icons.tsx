@@ -41,3 +41,4 @@ export function CopyIcon({ className, ...props }: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+

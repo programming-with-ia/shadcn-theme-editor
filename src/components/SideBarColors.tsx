@@ -24,11 +24,11 @@ function SideBarColors() {
   const [colors, setColors] = useState<ReadonlyThemeWithHSLColor[] | undefined>(
     undefined
   );
-  console.log("Current Theme is: ", currentTheme);
+  // console.log("Current Theme is: ", currentTheme);
   const saveLocalStorage = useDebounceCallback(() => {
     console.log("Saving to localStorage");
     ls.setLocalStorage(LOCAL_STORAGE_KEY + ":" + currentTheme, getColors(true));
-  }, 4000);
+  }, 2000);
 
   useEffect(() => {
     console.log("Reading to localStorage");
@@ -52,6 +52,7 @@ function SideBarColors() {
   }, [currentTheme]);
   return (
     <>
+      <span title="Currently, the `next-themes` feature is not working correctly. I will fix this issue in a later version, or feel free to submit a PR" className="text-muted-foreground px-4 py-2">!ResolvedTheme: {currentTheme}</span>
       {colors?.map((color) => (
         <Item
           key={color.variable.replace(/^-+/, "")}

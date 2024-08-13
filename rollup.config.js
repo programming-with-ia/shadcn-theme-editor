@@ -44,7 +44,7 @@ export default [
       banner2(()=>`"use client";\nimport "./index.css";\n`), // or use: https://github.com/Ephem/rollup-plugin-preserve-directives
       // preserveDirectives(),
     ],
-    external: ["react", "react-dom"],
+    external: ["react", "react-dom", 'next-themes'],
   },
   {
     input: "src/index.ts",

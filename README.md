@@ -63,13 +63,27 @@ pnpm add shadcn-theme-editor --save-dev
 ## 📖 Usage
 
 **import default and add in `app/layout.tsx` file**
-
+<!-- 
 > **Tip**  
 > It is preferable to use this component within the `ThemeProvider`, as follows:
-`import { ThemeProvider } from 'next-themes';`
+`import { ThemeProvider } from 'next-themes';` -->
 
 ```tsx
 import ThemeEditor from "shadcn-theme-editor";
+```
+
+or (in this way, it doesn't include the component in the production build)
+
+```tsx
+let ShadcnThemeEditor: any;
+if (process.env.NODE_ENV === 'development') {
+  import('shadcn-theme-editor').then(module => {
+    ShadcnThemeEditor = module.default; // or module, depending on the module's export
+  });
+} else {
+  // eslint-disable-next-line react/display-name
+  ShadcnThemeEditor = ()=>null
+}
 ```
 
 and use

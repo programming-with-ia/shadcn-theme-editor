@@ -26,9 +26,10 @@ export function Item({
     <Button
       variant={"colorbtn"}
       asChild
+      title={theme.variable}
     >
       <div>
-        <div className="relative overflow-hidden rounded border size-6 cursor-pointer">
+        <div className="relative overflow-hidden rounded border size-6 cursor-pointer shadow-md drop-shadow-md">
           <input
             defaultValue={colord(color).toHex()}
             type="color"
