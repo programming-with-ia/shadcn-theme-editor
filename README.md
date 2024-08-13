@@ -15,19 +15,19 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/programming-with-ia/shadcn-theme-editor)
 ![GitHub top language](https://img.shields.io/github/languages/top/programming-with-ia/shadcn-theme-editor)
 
-![minified size](https://img.shields.io/bundlephobia/min/shadcn-theme-editor@latest)
+![minified size](https://badgen.net/bundlephobia/minzip/shadcn-theme-editor@0.0.5?label=minified_size)
 
 [![NPM Version](https://img.shields.io/npm/v/shadcn-theme-editor?logo=npm)](https://www.npmjs.com/package/shadcn-theme-editor)
 [![GitHub](https://img.shields.io/badge/shadcn_theme_editor-161b22?logo=github)](https://github.com/programming-with-ia/shadcn-theme-editor)
 
 </div>
 
-> **IMPORTANT**  
+> **IMPORTANT**
 > This package is experimental.
 
 </br>
 
-> **CAUTION**  
+> **CAUTION**
 > Install only in dev dependencies.
 
 ---
@@ -63,6 +63,7 @@ pnpm add shadcn-theme-editor --save-dev
 ## 📖 Usage
 
 **import default and add in `app/layout.tsx` file**
+
 <!-- 
 > **Tip**  
 > It is preferable to use this component within the `ThemeProvider`, as follows:

@@ -4,4 +4,5 @@ rollup.config.js
 tsconfig.json
 .gitignore
 site
-*.config.js
+tailwind.config.js
+*.py
