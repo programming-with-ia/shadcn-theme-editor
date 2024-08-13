@@ -23,15 +23,16 @@ export function Sidebar({ isOpen }: { isOpen: boolean }) {
           <CopyTheme />
         </div>
       </div>
-      {/* <ThemeToggle /> */}
 
       <div className="text-sm flex flex-col">
         <SideBarColors />
       </div>
-      <footer className="flex flex-wrap justify-between gap-2 text-sm pt-2 mt-2 border-t">
-        <a className="hover:underline underline-offset-1" href="https://github.com/programming-with-ia">Github</a>
-        <a className="hover:underline underline-offset-1" href="https://www.npmjs.com/package/shadcn-theme-editor">npm</a>
-        <span className="text-muted-foreground w-full text-left">@immi</span>
+      <footer className="flex flex-col gap-2 text-sm pt-4 mt-2 border-t">
+        <div className="flex flex-wrap justify-between gap-2">
+          <a className="hover:underline underline-offset-1" href="https://github.com/programming-with-ia">Github</a>
+          <a className="hover:underline underline-offset-1" href="https://www.npmjs.com/package/shadcn-theme-editor">npm</a>
+        </div>
+        <span className="text-muted-foreground justify-between items-center text-left inline-flex w-full">@immi<ThemeToggle /></span>
       </footer>
     </aside>
   );

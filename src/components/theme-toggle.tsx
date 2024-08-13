@@ -16,7 +16,7 @@ export default function ThemeToggle() {
         return cn("rounded-full p-2", isCurrentTheme ? "bg-primary text-primary-foreground" : "hover:bg-accent hover:text-accent-foreground")
     }
   return (
-    <div className="flex items-center gap-2 p-1 rounded-full border bg-background text-foreground mx-auto w-fit">
+    <div className="flex items-center gap-2 p-1 rounded-full border bg-background text-foreground w-fit">
       <button onClick={()=> setTheme("light")}
         aria-label="Toggle light theme"
         className={getClasses(CurrentTheme == "light")}
