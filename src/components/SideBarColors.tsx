@@ -7,6 +7,12 @@ import { useDebounceCallback } from "../hooks/useDebounceCallback";
 import z from "zod";
 import { LOCAL_STORAGE_KEY } from "../lib/consts";
 
+function print(...props: any){
+  if ((window as any).shadcnThemeEditorDebugMode) {
+    console.log(...props)
+  }
+}
+
 const ZodTheme = z.array(
   z.object({
     title: z.string(),
@@ -31,33 +37,32 @@ function SideBarColors() {
   const [colors, setColors] = useState<ReadonlyThemeWithHSLColor[] | undefined>();
   // console.log("Current Theme is: ", currentTheme);
   const saveLocalStorage = useDebounceCallback(() => {
-    console.log("Saving to localStorage");
+    print("Saving the theme to local storage");
     ls.setLocalStorage(LOCAL_STORAGE_KEY + ":" + currentTheme, getColors(true));
   }, 2000);
 
   useEffect(() => {
     resetTheme()
-    console.log("Reading to localStorage");
+    print("reading theme", LOCAL_STORAGE_KEY + ":" + currentTheme)
     let theme = ls.getLocalStorageItem<ReadonlyThemeWithHSLColor[]>(
       LOCAL_STORAGE_KEY + ":" + currentTheme
     );
-    console.log("reading theme", LOCAL_STORAGE_KEY + ":" + currentTheme)
     if (theme) {
       try {
         const isValid = ZodTheme.parse(theme);
-        console.log("theme is valid and appling", isValid);
-        console.log("applied theme", theme)
+        print("theme is valid and appling", isValid);
+        print("applied theme", theme)
         setColorsProperties(theme);
         setColors(theme);
         return;
       } catch (error) {
-        console.log("invalid theme found in localStorage");
+        print("invalid theme found in localStorage");
         // localStorage.removeItem(LOCAL_STORAGE_KEY+":"+currentTheme); //* remove key
       }
     }
     theme = getColors(true) as any
-    console.log("theme not found in localStorage");
-    console.log("Now theme: ", theme)
+    print("theme not found in localStorage");
+    print("Now theme: ", theme)
     setColors(theme as any);
   }, [currentTheme]);
   return (

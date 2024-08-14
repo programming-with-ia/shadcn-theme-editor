@@ -22,14 +22,6 @@
 
 </div>
 
-> **IMPORTANT**
-> This package is experimental.
-
-</br>
-
-> **CAUTION**
-> Install only in dev dependencies.
-
 ---
 
 ## 📍 Overview

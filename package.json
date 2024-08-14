@@ -1,6 +1,6 @@
 {
   "name": "shadcn-theme-editor",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Shadcn Theme Editor",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -18,7 +18,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "shadcn-theme-editor",
+    "shadcn theme editor",
     "shadcn",
+    "shadcn-ui",
     "theme",
     "color",
     "next-themes",
@@ -27,7 +30,6 @@
     "customization",
     "personalization",
     "colord",
-    "shadcn-theme-edit",
     "theme-customization"
   ],
   "author": "immi",
