@@ -28,9 +28,7 @@ function SideBarColors() {
     setCurrentTheme(resolvedTheme)
   }, [resolvedTheme]);
 
-  const [colors, setColors] = useState<ReadonlyThemeWithHSLColor[] | undefined>(
-    undefined
-  );
+  const [colors, setColors] = useState<ReadonlyThemeWithHSLColor[] | undefined>();
   // console.log("Current Theme is: ", currentTheme);
   const saveLocalStorage = useDebounceCallback(() => {
     console.log("Saving to localStorage");
@@ -38,6 +36,7 @@ function SideBarColors() {
   }, 2000);
 
   useEffect(() => {
+    resetTheme()
     console.log("Reading to localStorage");
     let theme = ls.getLocalStorageItem<ReadonlyThemeWithHSLColor[]>(
       LOCAL_STORAGE_KEY + ":" + currentTheme
@@ -57,8 +56,8 @@ function SideBarColors() {
       }
     }
     theme = getColors(true) as any
-    resetTheme()
     console.log("theme not found in localStorage");
+    console.log("Now theme: ", theme)
     setColors(theme as any);
   }, [currentTheme]);
   return (

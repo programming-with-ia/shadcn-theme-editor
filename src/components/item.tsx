@@ -16,13 +16,13 @@ export function Item({
 
   useEffect(() => {
     setColor(colord(theme.color).toHex());
-    console.log("debug mode", theme.variable, theme.color, color)
+    // console.log("debug mode", theme.variable, theme.color, color)
   }, [theme]);
   const updateValue = useDebounceCallback(() => {
     setStyleColor(theme.variable, colord(color).toHsl());
     onSave();
   }, 0);
-  console.log("debug mode", theme.variable, theme.color, color)
+  // console.log("debug mode", theme.variable, theme.color, color)
   return (
     <Button
       variant={"colorbtn"}
