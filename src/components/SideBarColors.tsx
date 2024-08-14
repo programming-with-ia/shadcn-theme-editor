@@ -66,7 +66,7 @@ function SideBarColors() {
       {/* <span title="Currently, the `next-themes` feature is not working correctly. I will fix this issue in a later version, or feel free to submit a PR" className="text-muted-foreground px-4 py-2">!ResolvedTheme: {currentTheme}</span> */}
       {colors?.map((color) => (
         <Item
-          key={color.variable.replace(/^-+/, "")}
+          key={color.variable.replace(/^-+/, "")+currentTheme}
           onSave={saveLocalStorage}
           theme={color}
         />

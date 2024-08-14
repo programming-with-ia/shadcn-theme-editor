@@ -22,6 +22,8 @@ export function setColorsProperties(colorData:ReadonlyThemeWithHSLColor[]){
   return true
 }
 
+export const copy2clipboard = (text:string) => navigator.clipboard.writeText(text)
+
 export function resetTheme(){
   const rootElement = (document.querySelector(":root") as HTMLElement)
   if (!rootElement) return false

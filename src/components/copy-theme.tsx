@@ -1,6 +1,6 @@
 import { Button } from "../components/ui/button";
 // import { CopyIcon } from "@radix-ui/react-icons";
-import { getColors } from "../lib/utils";
+import { copy2clipboard, getColors } from "../lib/utils";
 import { CopyIcon } from "./icons";
 
 export function CopyTheme() {
@@ -8,7 +8,7 @@ export function CopyTheme() {
     let themeString = getColors()
       .map((color) => `${color.variable}: ${color.color};`)
       .join("\n");
-    navigator.clipboard.writeText(themeString);
+      copy2clipboard(themeString);
   };
 
   return (
