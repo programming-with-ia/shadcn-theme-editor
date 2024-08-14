@@ -95,7 +95,7 @@ svg rect {
     --radius: 0.5rem;
   }
 
-  .dark {
+  .dark, nonamenonamenoname {
     --background: 189 77% 5%;
     --foreground: 187 21% 75%;
     --muted: 189 12% 15%;
