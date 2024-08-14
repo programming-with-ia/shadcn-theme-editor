@@ -22,11 +22,11 @@ export function setColorsProperties(colorData:ReadonlyThemeWithHSLColor[]){
   return true
 }
 
-export function getRadius() {
-  const rootStyles = window.getComputedStyle(document.documentElement);
-  const defaultRadius = rootStyles.getPropertyValue("--radius").split(" ");
-
-  return defaultRadius[0];
+export function resetTheme(){
+  const rootElement = (document.querySelector(":root") as HTMLElement)
+  if (!rootElement) return false
+  themeColors.forEach(color=> rootElement.style.removeProperty(color.variable))
+  return true
 }
 
 export function removeWhitespaces(text: string) {

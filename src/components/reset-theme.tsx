@@ -3,6 +3,7 @@ import { LOCAL_STORAGE_KEY } from "../lib/consts";
 // import { ResetIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 import { ResetIcon } from "./icons";
+import { resetTheme } from "../lib/utils";
 
 export function ResetTheme() {
   const { resolvedTheme: currentTheme } = useTheme();
@@ -14,6 +15,7 @@ export function ResetTheme() {
       size="toolbtn"
       onClick={() => (
         localStorage.removeItem(LOCAL_STORAGE_KEY + ":" + currentTheme),
+        // resetTheme(),
         window.location.reload()
       )}
     >

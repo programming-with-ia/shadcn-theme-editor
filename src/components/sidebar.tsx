@@ -9,7 +9,7 @@ export function Sidebar({ isOpen }: { isOpen: boolean }) {
     <aside
       role="dialog"
       className={cn(
-        "fixed customScrollBar transition-colors duration-500 left-0 inset-y-0 z-30 hidden h-screen max-h-screen w-fit shrink-0 bg-background overflow-y-auto py-6 pl-8 pr-6 lg:py-8 border-r-2 shadow-md drop-shadow-sm",
+        "fixed customScrollBar transition-colors duration-500 left-0 inset-y-0 z-50 hidden h-screen max-h-screen w-fit shrink-0 bg-background overflow-y-auto py-6 pl-8 pr-6 lg:py-8 border-r-2 shadow-md drop-shadow-sm",
         isOpen && "md:block"
       )}
     >

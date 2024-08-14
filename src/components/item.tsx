@@ -12,16 +12,16 @@ export function Item({
   theme: ReadonlyThemeWithHSLColor;
   onSave: () => void;
 }) {
-  const [color, setColor] = useState<HslColor>(theme.color);
+  const [color, setColor] = useState<string>("#000");
 
   useEffect(() => {
-    setColor(theme.color);
+    setColor(colord(theme.color).toHex());
   }, [theme]);
   const updateValue = useDebounceCallback(() => {
-    setStyleColor(theme.variable, color);
+    setStyleColor(theme.variable, colord(color).toHsl());
     onSave();
   }, 0);
-
+  console.log(theme.variable, theme.color, color)
   return (
     <Button
       variant={"colorbtn"}
@@ -31,10 +31,11 @@ export function Item({
       <div>
         <div className="relative overflow-hidden rounded border size-6 cursor-pointer shadow-md drop-shadow-md">
           <input
-            defaultValue={colord(color).toHex()}
+            // defaultValue={colord(color).toHex()}
+            value={color}
             type="color"
             onChange={(e) => (
-              setColor(colord(e.target.value).toHsl()), updateValue()
+              setColor(e.target.value), updateValue()
             )}
             className="absolute cursor-pointer inset-1/2 size-[calc(100%+12px)] -translate-x-1/2 -translate-y-1/2 flex-shrink-0 bg-transparent"
           />

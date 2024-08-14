@@ -1,4 +1,4 @@
-import { getColors, ls, setColorsProperties } from "../lib/utils";
+import { getColors, ls, resetTheme, setColorsProperties } from "../lib/utils";
 import React, { useEffect, useState } from "react";
 import { Item } from "./item";
 import { ReadonlyThemeWithHSLColor } from "../lib/theme";
@@ -21,8 +21,8 @@ const ZodTheme = z.array(
 
 function SideBarColors() {
   // const { resolvedTheme: currentTheme } = useTheme();
+  
   const { resolvedTheme } = useTheme();
-
   const [currentTheme, setCurrentTheme] = useState<string | undefined>();
   useEffect(() => {
     setCurrentTheme(resolvedTheme)
@@ -39,13 +39,15 @@ function SideBarColors() {
 
   useEffect(() => {
     console.log("Reading to localStorage");
-    const theme = ls.getLocalStorageItem<ReadonlyThemeWithHSLColor[]>(
+    let theme = ls.getLocalStorageItem<ReadonlyThemeWithHSLColor[]>(
       LOCAL_STORAGE_KEY + ":" + currentTheme
     );
+    console.log("reading theme", LOCAL_STORAGE_KEY + ":" + currentTheme)
     if (theme) {
       try {
         const isValid = ZodTheme.parse(theme);
         console.log("theme is valid and appling", isValid);
+        console.log("applied theme", theme)
         setColorsProperties(theme);
         setColors(theme);
         return;
@@ -54,8 +56,10 @@ function SideBarColors() {
         // localStorage.removeItem(LOCAL_STORAGE_KEY+":"+currentTheme); //* remove key
       }
     }
+    theme = getColors(true) as any
+    resetTheme()
     console.log("theme not found in localStorage");
-    setColors(getColors(true) as any);
+    setColors(theme as any);
   }, [currentTheme]);
   return (
     <>
