@@ -1,7 +1,5 @@
 function NullCompo() {
-  return (
-    <div>Shadcn Theme Editor</div>
-  )
+  return <div>Shadcn Theme Editor</div>;
 }
 
-export default NullCompo
+export default NullCompo;

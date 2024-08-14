@@ -10,9 +10,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 justify-center",
-        toolbtn: "hover:bg-accent hover:text-accent-foreground justify-center hover:opacity-80",
-        colorbtn: "hover:bg-accent hover:text-accent-foreground justify-start gap-2 w-full"
+        default:
+          "bg-primary text-primary-foreground hover:bg-primary/90 justify-center",
+        toolbtn:
+          "hover:bg-accent hover:text-accent-foreground justify-center hover:opacity-80",
+        colorbtn:
+          "hover:bg-accent hover:text-accent-foreground justify-start gap-2 w-full",
       },
       size: {
         default: "px-4 py-2",
@@ -23,7 +26,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  },
+  }
 );
 
 export interface ButtonProps
@@ -42,7 +45,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       />
     );
-  },
+  }
 );
 Button.displayName = "Button";
 

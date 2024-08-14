@@ -1,34 +1,50 @@
 import { type ClassValue, clsx } from "clsx";
-import { ReadonlyThemeWithHSLColor, type ShadCnPropritiesType, themeColors } from "./theme";
+import {
+  ReadonlyThemeWithHSLColor,
+  type ShadCnPropritiesType,
+  themeColors,
+} from "./theme";
 
 export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);
 }
 
-export function getColors(colorAsHSL=false) {
+export function getColors(colorAsHSL = false) {
   let themeString = themeColors.map((item) => {
     const rootStyles = window.getComputedStyle(document.documentElement);
     const color = rootStyles.getPropertyValue(item.variable);
-    return { title: item.title, variable: item.variable, color: colorAsHSL ? computedColor2HSL(color) : color };
+    return {
+      title: item.title,
+      variable: item.variable,
+      color: colorAsHSL ? computedColor2HSL(color) : color,
+    };
   });
 
   return themeString;
 }
 
-export function setColorsProperties(colorData:ReadonlyThemeWithHSLColor[]){
-  const rootElement = (document.querySelector(":root") as HTMLElement)
-  if (!rootElement) return false
-  colorData.map(color=> rootElement.style.setProperty(color.variable, HSL2ComputedColor(color.color)))
-  return true
+export function setColorsProperties(colorData: ReadonlyThemeWithHSLColor[]) {
+  const rootElement = document.querySelector(":root") as HTMLElement;
+  if (!rootElement) return false;
+  colorData.map((color) =>
+    rootElement.style.setProperty(
+      color.variable,
+      HSL2ComputedColor(color.color)
+    )
+  );
+  return true;
 }
 
-export const copy2clipboard = (text:string) => navigator.clipboard.writeText(text)
+export const copy2clipboard = (text: string) =>
+  navigator.clipboard.writeText(text);
 
-export function resetTheme(){
-  const rootElement = (document.querySelector(":root") as HTMLElement)
-  if (!rootElement) return false
-  themeColors.forEach(color=> rootElement.style.removeProperty(color.variable))
-  return true
+export function resetTheme() {
+  const rootElement = document.querySelector(":root") as HTMLElement;
+  if (!rootElement) return false;
+  themeColors.forEach((color) =>
+    rootElement.style.removeProperty(color.variable)
+  );
+  return true;
 }
 
 export function removeWhitespaces(text: string) {
@@ -48,9 +64,9 @@ export function getProprity(proprity: string) {
     .getPropertyValue(proprity);
 }
 export function getComputedHSLColor(proprity: ShadCnPropritiesType) {
-  return computedColor2HSL(getProprity(proprity))
+  return computedColor2HSL(getProprity(proprity));
 }
-export function computedColor2HSL(color:string): HslColor{
+export function computedColor2HSL(color: string): HslColor {
   const hslColor = color.split(" ");
   return {
     h: parseFloat(hslColor[0]),
@@ -58,13 +74,12 @@ export function computedColor2HSL(color:string): HslColor{
     l: parseFloat(hslColor[2]),
   };
 }
-export function HSL2ComputedColor(color: HslColor){
-  return `${color.h} ${color.s}% ${color.l}%`
+export function HSL2ComputedColor(color: HslColor) {
+  return `${color.h} ${color.s}% ${color.l}%`;
 }
 export function setStyleColor(proprity: ShadCnPropritiesType, color: HslColor) {
   setProperity(proprity, HSL2ComputedColor(color));
 }
-
 
 export const ls = {
   setLocalStorage<T>(key: string, value: T): void {

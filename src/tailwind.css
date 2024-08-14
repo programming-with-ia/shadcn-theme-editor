@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 .customScrollBar {
-    scrollbar-gutter: stable;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .customScrollBar::-webkit-scrollbar {
-    width: 0.25rem;
-    height: 0.25rem;
+  width: 0.25rem;
+  height: 0.25rem;
 }
 
 .customScrollBar::-webkit-scrollbar-track {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .customScrollBar::-webkit-scrollbar-thumb {
-    @apply bg-primary/10 rounded-full
+  @apply bg-primary/10 rounded-full;
 }
 .customScrollBar:hover::-webkit-scrollbar-thumb {
-    @apply bg-primary
+  @apply bg-primary;
 }

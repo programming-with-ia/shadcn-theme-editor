@@ -1,17 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { Sidebar } from "./sidebar";
 import { Button } from "./ui/button";
 
 function EditorOpenBtn() {
   const [IsOpen, setIsOpen] = useState(false);
-  // const [IsMount, setIsMount] = useState(false);
-  // useEffect(() => {
-  //   setIsMount(true)
-  // }, []);
-  // if (!IsMount){
-  //   return null
-  // }
   return (
     <div id="shadcn-theme-editor">
       <Button

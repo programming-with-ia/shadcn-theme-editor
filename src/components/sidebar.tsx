@@ -29,10 +29,25 @@ export function Sidebar({ isOpen }: { isOpen: boolean }) {
       </div>
       <footer className="flex flex-col gap-2 text-sm pt-4 mt-2 border-t -mb-4">
         <div className="flex flex-wrap justify-between gap-2">
-          <a className="hover:underline underline-offset-1" target="_blank" href="https://github.com/programming-with-ia/shadcn-theme-editor">Github</a>
-          <a className="hover:underline underline-offset-1" target="_blank" href="https://www.npmjs.com/package/shadcn-theme-editor">npm</a>
+          <a
+            className="hover:underline underline-offset-1"
+            target="_blank"
+            href="https://github.com/programming-with-ia/shadcn-theme-editor"
+          >
+            Github
+          </a>
+          <a
+            className="hover:underline underline-offset-1"
+            target="_blank"
+            href="https://www.npmjs.com/package/shadcn-theme-editor"
+          >
+            npm
+          </a>
         </div>
-        <span className="text-muted-foreground justify-between items-center text-left inline-flex w-full">@immi<ThemeToggle /></span>
+        <span className="text-muted-foreground justify-between items-center text-left inline-flex w-full">
+          @immi
+          <ThemeToggle />
+        </span>
       </footer>
     </aside>
   );
