@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:host,
+html,
+body {
+  height: 100%;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+svg {
+  shape-rendering: crispEdges;
+}
+
+svg circle,
+svg line,
+svg path,
+svg polygon,
+svg rect {
+  shape-rendering: geometricprecision;
+}
+
+.overflow-auto,
+.overflow-y-auto,
+.overflow-x-auto,
+.customScrollBar {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.overflow-auto::-webkit-scrollbar,
+.overflow-y-auto::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar,
+.customScrollBar::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 0.4rem;
+}
+
+.overflow-auto::-webkit-scrollbar-track,
+.overflow-y-auto::-webkit-scrollbar-track,
+.overflow-x-auto::-webkit-scrollbar-track,
+.customScrollBar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb,
+.overflow-y-auto::-webkit-scrollbar-thumb,
+.overflow-x-auto::-webkit-scrollbar-thumb,
+.customScrollBar::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+.overflow-auto::-webkit-scrollbar-thumb:hover,
+.overflow-y-auto::-webkit-scrollbar-thumb:hover,
+.overflow-x-auto::-webkit-scrollbar-thumb:hover,
+.customScrollBar::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/80;
+}
+
+.primaryText {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-90% to-primary;
+}
+
+@layer base {
+  :root {
+    --background: 180 10% 96%;
+    --foreground: 187 100% 19%;
+    --muted: 180 12% 90%;
+    --muted-foreground: 180 12% 30%;
+    --popover: 180 10% 93%;
+    --popover-foreground: 187 100% 9%;
+    --card: 180 10% 94%;
+    --card-foreground: 187 100% 14%;
+    --border: 0 0% 91%;
+    --input: 0 0% 88%;
+    --primary: 187 100% 34%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 187 30% 75%;
+    --secondary-foreground: 187 30% 15%;
+    --accent: 180 10% 81%;
+    --accent-foreground: 180 10% 21%;
+    --destructive: 4 86% 41%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 187 100% 34%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 189 77% 5%;
+    --foreground: 187 21% 75%;
+    --muted: 189 12% 15%;
+    --muted-foreground: 189 12% 65%;
+    --popover: 189 77% 2%;
+    --popover-foreground: 187 21% 85%;
+    --card: 189 77% 3%;
+    --card-foreground: 187 21% 80%;
+    --border: 189 67% 10%;
+    --input: 189 67% 13%;
+    --primary: 187 78% 39%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 187 30% 75%;
+    --secondary-foreground: 187 30% 15%;
+    --accent: 189 77% 20%;
+    --accent-foreground: 189 77% 80%;
+    --destructive: 0 84% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 187 78% 39%;
+  }
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
