@@ -77,7 +77,7 @@ svg rect {
 #shadcn-theme-editor {
   @apply w-fit
 }
-#shadcn-theme-editor > aside {
+div[role="dialog"] > #shadcn-theme-editor > aside {
   @apply !flex flex-col !static !bg-transparent
 }
 #shadcn-theme-editor> aside  > :nth-last-child(2) {

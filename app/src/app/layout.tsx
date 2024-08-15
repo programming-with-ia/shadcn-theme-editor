@@ -31,7 +31,7 @@ export default async function RootLayout({
           </header>
           <main className="w-full">
             <div className="w-full flex flex-col justify-between md:px-8 px-4 lg:px-12 min-h-screen">{children}</div>
-            {/* <ShadcnThemeEditor /> */}
+            <ShadcnThemeEditor />
             <ThemeEditor />
           </main>
         </ThemeProvider>
