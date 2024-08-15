@@ -44,9 +44,9 @@ export const Cards = () => {
           <DemoContainer>
             <ShareDocument />
           </DemoContainer>
-          <DemoContainer>
+          {/* <DemoContainer>
             <CommandDemo />
-          </DemoContainer>
+          </DemoContainer> */}
           <DemoContainer>
             <ReportIssue />
           </DemoContainer>

@@ -201,7 +201,7 @@ function Display() {
       <Container
         As="section"
         options={{ marginY: false }}
-        className="gap-y-3 justify-center m-auto relative py-32 text-center min-h-[70vh]"
+        className="gap-y-3 justify-center m-auto relative text-center min-h-[70vh]"
       >
         <Heading size="xxl" className={("primaryText font-bold")}>
           {brandConfig.Brand}
@@ -209,12 +209,12 @@ function Display() {
         <span className={getHeadingSize("sm")}>Manage Shadcn theme colors with an intuitive UI.</span>
         <p className="text-lg mt-3 text-muted-foreground">Shadcn Theme Editor is a user-friendly component designed to simplify the process of managing and customizing theme colors in Shadcn-based projects</p>
         {/* <p className="text-lg mt-3 text-muted-foreground">Crafting digital dreams. Expertise in animation, UI/UX, video editing, design, and web development.</p> */}
-        <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 justify-center">
+        <div className="mt-10 flex flex-wrap md:gap-x-6 gap-3 justify-center">
           <Button asChild className="w-32 gap-1 rounded-xl" variant={"default"}>
-            <a href="https://github.com/programming-with-ia/shadcn-theme-editor/" target="_blank"><IoLogoGithub size={22} /> Github</a>
+            <a target="_blank" href="https://github.com/programming-with-ia/shadcn-theme-editor/"><IoLogoGithub size={22} /> Github</a>
           </Button>
           <Button asChild className="w-32 gap-1 rounded-xl" variant={"default"}>
-            <a href="https://www.npmjs.com/package/shadcn-theme-editor"><CgNpm size={22} />Npm</a>
+            <a target="_blank" href="https://www.npmjs.com/package/shadcn-theme-editor"><CgNpm size={22} />Npm</a>
           </Button>
         </div>
       </Container>

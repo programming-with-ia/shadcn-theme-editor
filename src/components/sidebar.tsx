@@ -10,7 +10,7 @@ export function Sidebar({ isOpen }: { isOpen: boolean }) {
       role="dialog"
       className={cn(
         "fixed customScrollBar transition-colors duration-500 left-0 inset-y-0 z-50 hidden h-screen max-h-screen w-fit shrink-0 bg-background overflow-y-auto py-6 pl-8 pr-6 lg:py-8 border-r-2 shadow-md drop-shadow-sm",
-        isOpen && "md:block"
+        isOpen && "md:flex flex-col"
       )}
     >
       <div className="mb-1 flex items-center px-2 py-1 font-semibold">
@@ -24,7 +24,7 @@ export function Sidebar({ isOpen }: { isOpen: boolean }) {
         </div>
       </div>
 
-      <div className="text-sm flex flex-col">
+      <div className="text-sm flex flex-col flex-1">
         <SideBarColors />
       </div>
       <footer className="flex flex-col gap-2 text-sm pt-4 mt-2 border-t -mb-4">

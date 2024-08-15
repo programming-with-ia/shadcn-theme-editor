@@ -71,6 +71,19 @@ svg rect {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-90% to-primary;
 }
 
+#shadcn-theme-editor > button {
+  display: none !important;
+}
+#shadcn-theme-editor {
+  @apply w-fit
+}
+#shadcn-theme-editor > aside {
+  @apply !flex flex-col !static !bg-transparent
+}
+#shadcn-theme-editor> aside  > :nth-last-child(2) {
+  @apply flex-1
+}
+
 @layer base {
   :root {
     --background: 180 10% 96%;
@@ -95,7 +108,7 @@ svg rect {
     --radius: 0.5rem;
   }
 
-  .dark, nonamenonamenoname {
+  .dark, noname {
     --background: 189 77% 5%;
     --foreground: 187 21% 75%;
     --muted: 189 12% 15%;

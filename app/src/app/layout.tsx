@@ -4,6 +4,7 @@ import "./globals.css";
 import clsx from "clsx";
 import { ThemeProvider } from "next-themes";
 import ShadcnThemeEditor from "shadcn-theme-editor";
+import ThemeEditor from "@/components/theme-editor";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -30,7 +31,8 @@ export default async function RootLayout({
           </header>
           <main className="w-full">
             <div className="w-full flex flex-col justify-between md:px-8 px-4 lg:px-12 min-h-screen">{children}</div>
-            <ShadcnThemeEditor />
+            {/* <ShadcnThemeEditor /> */}
+            <ThemeEditor />
           </main>
         </ThemeProvider>
       </body>
