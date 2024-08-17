@@ -85,6 +85,12 @@ and use
 <ThemeEditor />
 ```
 
+<!-- # Images
+
+<p align="center">
+  <img width="18%" align="center" src="https://raw.githubusercontent.com/zhiyiYo/PyQt-Fluent-Widgets/master/docs/source/_static/logo.png" alt="logo">
+</p> -->
+
 ## 📄 License
 
 This project is licensed under the `ℹ️ MIT` License.

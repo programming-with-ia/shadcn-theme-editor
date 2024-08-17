@@ -7,6 +7,8 @@ import React from "react";
 import { IoLogoGithub } from "react-icons/io";
 import { IoLogoNpm } from "react-icons/io";
 import { CgNpm } from "react-icons/cg";
+import DisplayContainer from "@/components/display-container";
+import { cn } from "@/lib/utils";
 
 function Display_() {
   return (
@@ -198,26 +200,27 @@ function Display_() {
 
 function Display() {
     return (
-      <Container
-        As="section"
-        options={{ marginY: false }}
-        className="gap-y-3 justify-center m-auto relative text-center min-h-[70vh]"
+      <DisplayContainer
+        className="text-center gap-1"
+        // As="section"
+        // options={{ marginY: false }}
+        // className="gap-y-3 justify-center m-auto relative text-center min-h-[70vh]"
       >
-        <Heading size="xxl" className={("primaryText font-bold")}>
+        <Heading size="xl" className={("primaryText font-bold")}>
           {brandConfig.Brand}
         </Heading>
-        <span className={getHeadingSize("sm")}>Manage Shadcn theme colors with an intuitive UI.</span>
-        <p className="text-lg mt-3 text-muted-foreground">Shadcn Theme Editor is a user-friendly component designed to simplify the process of managing and customizing theme colors in Shadcn-based projects</p>
+        <span className={(getHeadingSize("xs"))}>Manage Shadcn theme colors with an intuitive UI.</span>
+        <p className="mt-3 text-muted-foreground">Shadcn Theme Editor is a user-friendly component designed to simplify the process of managing and customizing theme colors in Shadcn-based projects</p>
         {/* <p className="text-lg mt-3 text-muted-foreground">Crafting digital dreams. Expertise in animation, UI/UX, video editing, design, and web development.</p> */}
         <div className="mt-10 flex flex-wrap md:gap-x-6 gap-3 justify-center">
           <Button asChild className="w-32 gap-1 rounded-xl" variant={"default"}>
-            <a target="_blank" href="https://github.com/programming-with-ia/shadcn-theme-editor/"><IoLogoGithub size={22} /> Github</a>
+            <a target="_blank" href={brandConfig.github}><IoLogoGithub size={22} /> Github</a>
           </Button>
           <Button asChild className="w-32 gap-1 rounded-xl" variant={"default"}>
-            <a target="_blank" href="https://www.npmjs.com/package/shadcn-theme-editor"><CgNpm size={22} />Npm</a>
+            <a target="_blank" href={brandConfig.npm}><CgNpm size={22} />Npm</a>
           </Button>
         </div>
-      </Container>
+      </DisplayContainer>
     );
   }
   

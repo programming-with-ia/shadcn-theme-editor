@@ -12,6 +12,8 @@ export const brandConfig = {
     "2d animation studio, web development, nextjs development, react development, video editing, character design, ui-ux design, ui/ux design, concept art, art design",
   seo: {},
   url: url,
+  github: "https://github.com/programming-with-ia/shadcn-theme-editor/",
+  npm: "https://www.npmjs.com/package/shadcn-theme-editor",
 //   ogImage: `${url}/src-1200x630.png`, // w: 1200px, h: 630px
 //   images: [
 //     {

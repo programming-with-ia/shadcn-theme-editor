@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1447 156.11">
+  <defs>
+    <pattern id="Unnamed_Pattern" data-name="Unnamed Pattern" x="0" y="0" width="678.38" height="78.71" patternTransform="translate(0 157)" patternUnits="userSpaceOnUse" viewBox="0 0 678.38 78.71">
+      <g>
+        <rect y="0" width="678.38" height="78.71" fill="none" stroke-width="0"/>
+        <path d="m678.38,0S565.88,103.5,0,73.12V0h678.38Z" fill="#2453ff" fill-rule="evenodd" stroke-width="0"/>
+      </g>
+    </pattern>
+  </defs>
+  <path d="m1062.77,24.16s-43.27,280.48-802.45-.54l802.45.54Z" fill="#2453ff" fill-rule="evenodd" stroke="url(#Unnamed_Pattern)" stroke-miterlimit="10" stroke-width="1.73"/>
+  <path d="m1444.65,112.37s-282.25,85.09-532.85-45.77l-1.82-31.45L1438.4,4.55l6.24,107.82Z" fill="red" fill-rule="evenodd" stroke-width="0"/>
+  <path d="m1447,136.18V0H0v71.23h0c0,12.62,8.46,23.69,20.65,27,388.24,105.43,592.19,42.39,769.5-2.3,180.93-45.61,334.11-84.22,627.06,58.08,13.44,6.53,29.8-2.88,29.8-17.82Z" fill-rule="evenodd" stroke-width="0"/>
+</svg>

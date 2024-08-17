@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { ThemeProvider } from "next-themes";
 import ShadcnThemeEditor from "shadcn-theme-editor";
 import ThemeEditor from "@/components/theme-editor";
+import GithubCorner from "@/components/github-corner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" className="customScrollBar">
-      <body className={clsx("", inter.className)}>
+      <body className={clsx("gradient_body", inter.className)}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -30,10 +31,11 @@ export default async function RootLayout({
 
           </header>
           <main className="w-full">
-            <div className="w-full flex flex-col justify-between md:px-8 px-4 lg:px-12 min-h-screen">{children}</div>
-            <ShadcnThemeEditor />
+            <div className="w-full flex flex-col justify-between md:px-8 px-4 lg:px-12 min-h-screen max-w-[1700px] mx-auto">{children}</div>
+            <ShadcnThemeEditor /> {/* for applying theme from localstorage */}
             <ThemeEditor />
           </main>
+          <GithubCorner />
         </ThemeProvider>
       </body>
     </html>
