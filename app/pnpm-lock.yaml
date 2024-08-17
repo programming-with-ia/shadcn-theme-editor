@@ -122,6 +122,9 @@ importers:
       cmdk:
         specifier: ^1.0.0
         version: 1.0.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      colord:
+        specifier: ^2.9.3
+        version: 2.9.3
       embla-carousel:
         specifier: ^8.1.8
         version: 8.1.8

@@ -15,7 +15,7 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/programming-with-ia/shadcn-theme-editor)
 ![GitHub top language](https://img.shields.io/github/languages/top/programming-with-ia/shadcn-theme-editor)
 
-![minified size](https://badgen.net/bundlephobia/minzip/shadcn-theme-editor@0.0.5?label=minified_size)
+![minified size](https://badgen.net/bundlephobia/min/shadcn-theme-editor@latest)
 
 [![NPM Version](https://img.shields.io/npm/v/shadcn-theme-editor?logo=npm)](https://www.npmjs.com/package/shadcn-theme-editor)
 [![GitHub](https://img.shields.io/badge/shadcn_theme_editor-161b22?logo=github)](https://github.com/programming-with-ia/shadcn-theme-editor)
@@ -85,11 +85,13 @@ and use
 <ThemeEditor />
 ```
 
-<!-- # Images
+</br>
+
+# Screenshots
 
 <p align="center">
-  <img width="18%" align="center" src="https://raw.githubusercontent.com/zhiyiYo/PyQt-Fluent-Widgets/master/docs/source/_static/logo.png" alt="logo">
-</p> -->
+  <img align="center" src="https://raw.githubusercontent.com/programming-with-ia/shadcn-theme-editor/master/screenshots/shadcn-theme-editor.png" alt="logo">
+</p>
 
 ## 📄 License
 

@@ -3,7 +3,7 @@ import React, { SVGProps } from "react";
 
 function DisplayContainer({ children, className }: { children: React.ReactNode, className?: string }) {
   return (
-    <div className=" drop-shadow-xl lg:w-11/12 xl:w-4/5 mx-auto">
+    <div className=" drop-shadow-xl xl:w-4/5 mx-auto">
       <div className={cn("p-8 md:p-16 lg:p-24 w-[98.6%] bg-card mx-auto rounded-t-xl drop-shadow-lg relative -z-10 flex flex-col items-center", className)}>
         {children}
       </div>

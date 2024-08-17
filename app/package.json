@@ -47,6 +47,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
+    "colord": "^2.9.3",
     "embla-carousel": "^8.1.8",
     "embla-carousel-react": "^8.1.8",
     "lodash.debounce": "^4.0.8",

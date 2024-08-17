@@ -82,6 +82,11 @@ export const themeColors = [
   },
 ] as const;
 
+export function getColorTitle(variable: string) {
+  const color = themeColors.find(item => item.variable === variable);
+  return color ? color.title : undefined;
+}
+
 export type ShadCnPropritiesType = (typeof themeColors)[number]["variable"];
 export type ReadonlyThemeWithColor = (typeof themeColors)[number] & {
   color: string;
