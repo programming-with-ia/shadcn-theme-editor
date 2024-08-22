@@ -3,10 +3,9 @@
 import { Colord, extend } from "colord";
 import a11yPlugin from "colord/plugins/a11y";
 import harmoniesPlugin from "colord/plugins/harmonies";
-import { getColorTitle, ReadonlyThemeWithHSLColor, ShadCnPropritiesType } from "./theme";
+import { getColorTitle, ReadonlyThemeWithHSLColor, type ShadCnPropritiesType, type themeModes } from './theme';
 
 type Hsl = HslColor;
-type themeModes = "light" | "dark"
 // type Hsl = {
 //     h: number;
 //     s: number;

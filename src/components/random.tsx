@@ -2,17 +2,24 @@ import React, { useState } from 'react'
 import { Button } from './ui/button'
 import { createRandomTheme } from '../lib/create-theme-config'
 import { useTheme } from 'next-themes'
-import { getComputedHSLColor, setColorsProperties } from '../lib/utils'
+import { getComputedHSLColor, saveTheme, setColorsProperties } from '../lib/utils'
 import { Dices, Lock, UnLock } from './icons';
+import { ReadonlyThemeWithHSLColor, SystemThemes, themeModes } from '../lib/theme'
 
 function RandomBtn() {
-    const { systemTheme } = useTheme()
+  const { resolvedTheme=""+undefined, systemTheme="dark" } = useTheme();
     const [lockPrimary, setLockPrimary] = useState(true);
     const onClickHandler = ()=>{
-        const themes = createRandomTheme(lockPrimary ? getComputedHSLColor("--primary"): undefined)
-        const theme = themes[systemTheme!] ?? themes.dark
-        // const theme = themes.dark
-        console.log(theme)
+      const themes = createRandomTheme(lockPrimary ? getComputedHSLColor("--primary"): undefined)
+      let theme;
+
+      if (SystemThemes.includes(resolvedTheme as any)){
+        theme = themes[resolvedTheme as themeModes] as ReadonlyThemeWithHSLColor[];
+        SystemThemes.forEach(theme=> saveTheme(resolvedTheme, themes[theme])) // save both themes
+      } else {
+        theme = themes[systemTheme] as ReadonlyThemeWithHSLColor[];
+        saveTheme(resolvedTheme, theme)
+      }
         setColorsProperties(theme)
     }
     const LockIcon = lockPrimary? Lock: UnLock

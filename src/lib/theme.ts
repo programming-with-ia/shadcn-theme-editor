@@ -91,6 +91,9 @@ export type ShadCnPropritiesType = (typeof themeColors)[number]["variable"];
 export type ReadonlyThemeWithColor = (typeof themeColors)[number] & {
   color: string;
 };
+export const SystemThemes = ["light", "dark"] as const;
+export type themeModes = typeof SystemThemes[number]
+
 export type ReadonlyThemeWithHSLColor = (typeof themeColors)[number] & {
   color: HslColor;
 };

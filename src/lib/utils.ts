@@ -4,6 +4,7 @@ import {
   type ShadCnPropritiesType,
   themeColors,
 } from "./theme";
+import { LOCAL_STORAGE_KEY } from "./consts";
 
 export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);
@@ -103,3 +104,7 @@ export const ls = {
     }
   },
 };
+
+export function saveTheme(key: string | undefined, theme: ReadonlyThemeWithHSLColor[]){
+  ls.setLocalStorage(LOCAL_STORAGE_KEY + ":" + key, theme);
+}

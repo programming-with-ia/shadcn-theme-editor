@@ -93,6 +93,17 @@ and use
   <img align="center" src="https://raw.githubusercontent.com/programming-with-ia/shadcn-theme-editor/master/screenshots/shadcn-theme-editor.png" alt="logo">
 </p>
 
+## Upcoming Features
+
+- Randomize
+- use [jln themes](https://ui.jln.dev/) directly in your project
+
+## Special Thanks
+
+I would like to extend my heartfelt thanks to the following individuals and projects:
+
+- **[Julian](https://github.com/jln13x)** - for creating [ui.jln.dev](https://ui.jln.dev/), 10000+ Themes for shadcn/ui.
+
 ## 📄 License
 
 This project is licensed under the `ℹ️ MIT` License.

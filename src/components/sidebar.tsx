@@ -4,6 +4,7 @@ import SideBarColors from "./SideBarColors";
 import { CopyTheme } from "./copy-theme";
 import ThemeToggle from "./theme-toggle";
 import RandomBtn from "./random";
+import SidebarSection from "./sidebar-section";
 
 export function Sidebar({ isOpen }: { isOpen: boolean }) {
   return (
@@ -17,13 +18,12 @@ export function Sidebar({ isOpen }: { isOpen: boolean }) {
       <div className="mb-1 flex items-center px-2 py-1 font-semibold">
         Shadcn Theme Editor
       </div>
-      <div className="mb-1 flex items-center justify-between pl-2 py-1 text-sm font-semibold gap-2">
-        Theming
+      <SidebarSection.Header label="Theming">
         <div className="flex">
           <ResetTheme />
           <CopyTheme />
         </div>
-      </div>
+      </SidebarSection.Header>
 
       <div className="text-sm flex flex-col flex-1">
         <SideBarColors />
