@@ -1,6 +1,6 @@
 {
   "name": "shadcn-theme-editor",
-  "version": "1.3.0-alpha.1",
+  "version": "1.3.0-alpha.2",
   "description": "Shadcn Theme Editor",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
