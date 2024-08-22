@@ -1,11 +1,16 @@
 {
   "$schema": "https://unpkg.com/release-it/schema/release-it.json",
   "github": {
-    "release": true
+    "release": true,
+     "releaseNotes": "git log --no-merges --pretty=format:\"* %s %h\" ${latestTag}...main"
   },
   "git": {
     "commitMessage": "Release ${version}",
     "tagName": "v${version}"
+  },
+  "gitlab": {
+    "release": true,
+    "releaseNotes": "git log --no-merges --pretty=format:\"* %s (%h)\" ${from}...${to}"
   },
   "npm": {
     "publish": true
