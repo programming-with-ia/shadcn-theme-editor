@@ -97,3 +97,5 @@ export type themeModes = typeof SystemThemes[number]
 export type ReadonlyThemeWithHSLColor = (typeof themeColors)[number] & {
   color: HslColor;
 };
+
+export type ThemeWithHSLColor = Mutable<ReadonlyThemeWithHSLColor>

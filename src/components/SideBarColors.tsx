@@ -1,14 +1,16 @@
 import { getColors, ls, resetTheme, setColorsProperties } from "../lib/utils";
 import React, { useEffect, useState } from "react";
 import { Item } from "./item";
-import { ReadonlyThemeWithHSLColor } from "../lib/theme";
+import { ThemeWithHSLColor } from "../lib/theme";
 import { useTheme } from "next-themes";
 import { useDebounceCallback } from "../hooks/useDebounceCallback";
 import z from "zod";
 import { LOCAL_STORAGE_KEY } from "../lib/consts";
+import { useEmittor } from "emittor";
+import { themeEmittor } from "../lib/emittors";
 
 function print(...props: any) {
-  if ((window as any).shadcnThemeEditorDebugMode) {
+  if (typeof window !== "undefined" && (window as any).shadcnThemeEditorDebugMode) {
     console.log(...props);
   }
 }
@@ -34,19 +36,16 @@ function SideBarColors() {
     setCurrentTheme(resolvedTheme);
   }, [resolvedTheme]);
 
-  const [colors, setColors] = useState<
-    ReadonlyThemeWithHSLColor[] | undefined
-  >();
-  // console.log("Current Theme is: ", currentTheme);
+  const [colors, setColors] = useEmittor(themeEmittor.e);
   const saveLocalStorage = useDebounceCallback(() => {
     print("Saving the theme to local storage");
     ls.setLocalStorage(LOCAL_STORAGE_KEY + ":" + currentTheme, getColors(true));
   }, 2000);
 
   useEffect(() => {
-    resetTheme();
+    // resetTheme();
     print("reading theme", LOCAL_STORAGE_KEY + ":" + currentTheme);
-    let theme = ls.getLocalStorageItem<ReadonlyThemeWithHSLColor[]>(
+    let theme = ls.getLocalStorageItem<ThemeWithHSLColor[]>(
       LOCAL_STORAGE_KEY + ":" + currentTheme
     );
     if (theme) {
@@ -54,18 +53,22 @@ function SideBarColors() {
         const isValid = ZodTheme.parse(theme);
         print("theme is valid and appling", isValid);
         print("applied theme", theme);
-        setColorsProperties(theme);
-        setColors(theme);
+        themeEmittor.applyTheme(theme)
+        // setColorsProperties(theme);
+        // setColors(theme);
         return;
       } catch (error) {
         print("invalid theme found in localStorage");
         // localStorage.removeItem(LOCAL_STORAGE_KEY+":"+currentTheme); //* remove key
       }
     }
-    theme = getColors(true) as any;
+    // resetTheme()
+    // theme = getColors(true) as any;
+    // theme = getDefaultTheme()
     print("theme not found in localStorage");
     print("Now theme: ", theme);
-    setColors(theme as any);
+    // setColors(theme as any);
+    themeEmittor.setDefaultTheme()
   }, [currentTheme]);
   return (
     <>

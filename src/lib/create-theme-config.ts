@@ -3,7 +3,7 @@
 import { Colord, extend } from "colord";
 import a11yPlugin from "colord/plugins/a11y";
 import harmoniesPlugin from "colord/plugins/harmonies";
-import { getColorTitle, ReadonlyThemeWithHSLColor, type ShadCnPropritiesType, type themeModes } from './theme';
+import { getColorTitle, ThemeWithHSLColor, type ShadCnPropritiesType, type themeModes } from './theme';
 
 type Hsl = HslColor;
 // type Hsl = {
@@ -471,7 +471,7 @@ export function createRandomTheme(primaryColor?: Hsl){
   const themes = createThemeConfig(primaryColor)
   let validThemes: {[key: string]: any} = {};
   for (let [mode, theme] of Object.entries(themes)) {
-    let validTheme: ReadonlyThemeWithHSLColor[] = []
+    let validTheme: ThemeWithHSLColor[] = []
     for (let [name, color] of Object.entries(theme)) {
       let pro = '--'+toKebabCase(name)
       validTheme.push({
@@ -482,5 +482,5 @@ export function createRandomTheme(primaryColor?: Hsl){
     }
     validThemes[mode] = validTheme
   }
-  return validThemes as {[mode in themeModes]: ReadonlyThemeWithHSLColor[]}
+  return validThemes as {[mode in themeModes]: ThemeWithHSLColor[]}
 }

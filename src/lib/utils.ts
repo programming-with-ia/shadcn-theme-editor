@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import {
-  ReadonlyThemeWithHSLColor,
+  ThemeWithHSLColor,
   type ShadCnPropritiesType,
   themeColors,
 } from "./theme";
@@ -24,7 +24,13 @@ export function getColors(colorAsHSL = false) {
   return themeString;
 }
 
-export function setColorsProperties(colorData: ReadonlyThemeWithHSLColor[]) {
+// export function getDefaultTheme(){
+//   resetTheme()
+//   const theme = getColors(true)
+//   return theme as ThemeWithHSLColor[]
+// }
+
+export function setColorsProperties(colorData: ThemeWithHSLColor[]) {
   const rootElement = document.querySelector(":root") as HTMLElement;
   if (!rootElement) return false;
   colorData.map((color) =>
@@ -103,8 +109,18 @@ export const ls = {
       return null;
     }
   },
+  deleteAllThemes() {
+    // Iterate over all keys in localStorage
+    for (let i = localStorage.length - 1; i >= 0; i--) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(LOCAL_STORAGE_KEY)) {
+        localStorage.removeItem(key);
+      }
+    }
+  }
+  
 };
 
-export function saveTheme(key: string | undefined, theme: ReadonlyThemeWithHSLColor[]){
+export function saveTheme(key: string | undefined, theme: ThemeWithHSLColor[]){
   ls.setLocalStorage(LOCAL_STORAGE_KEY + ":" + key, theme);
 }

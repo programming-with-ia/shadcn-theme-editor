@@ -7,3 +7,7 @@ tsconfig.json
 site
 tailwind.config.js
 *.py
+*.tgz
+screenshots
+tempCodeRunnerFile.*
+.release-it.json

@@ -15,7 +15,7 @@ export function Sidebar({ isOpen }: { isOpen: boolean }) {
         isOpen && "md:flex flex-col"
       )}
     >
-      <div className="mb-1 flex items-center px-2 py-1 font-semibold">
+      <div className="flex items-center px-2 py-1 font-semibold">
         Shadcn Theme Editor
       </div>
       <SidebarSection.Header label="Theming">
@@ -25,11 +25,14 @@ export function Sidebar({ isOpen }: { isOpen: boolean }) {
         </div>
       </SidebarSection.Header>
 
-      <div className="text-sm flex flex-col flex-1">
+      <SidebarSection.Body className="flex-1">
         <SideBarColors />
-        <hr className="my-2" />
+      </SidebarSection.Body>
+      {/* <SidebarSection.Seperator /> */}
+      <SidebarSection.Header label="ui.jln.dev" href="https://ui.jln.dev/" />
+      <SidebarSection.Body>
         <RandomBtn />
-      </div>
+      </SidebarSection.Body>
       <footer className="flex flex-col gap-2 text-sm pt-4 mt-2 border-t -mb-4">
         <div className="flex flex-wrap justify-between gap-2">
           <a

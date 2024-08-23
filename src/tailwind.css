@@ -5,7 +5,7 @@
 .customScrollBar {
   scrollbar-gutter: stable;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  overflow-anchor: none;
 }
 
 .customScrollBar::-webkit-scrollbar {

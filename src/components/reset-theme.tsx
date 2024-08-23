@@ -2,6 +2,8 @@ import { Button } from "./ui/button";
 import { LOCAL_STORAGE_KEY } from "../lib/consts";
 import { useTheme } from "next-themes";
 import { ResetIcon } from "./icons";
+import { ls } from "../lib/utils";
+import { themeEmittor } from "../lib/emittors";
 
 export function ResetTheme() {
   const { resolvedTheme: currentTheme } = useTheme();
@@ -10,10 +12,13 @@ export function ResetTheme() {
       title="Reset to the default theme"
       variant={"toolbtn"}
       size="toolbtn"
-      onClick={() => (
-        localStorage.removeItem(LOCAL_STORAGE_KEY + ":" + currentTheme),
+      onClick={(e) => (
+        e.ctrlKey
+          ? ls.deleteAllThemes()
+          : localStorage.removeItem(LOCAL_STORAGE_KEY + ":" + currentTheme),
         // resetTheme(),
-        window.location.reload()
+        themeEmittor.setDefaultTheme()
+        // window.location.reload()
       )}
     >
       <ResetIcon />

@@ -1,4 +1,4 @@
-import { ReadonlyThemeWithHSLColor } from "../lib/theme";
+import { ThemeWithHSLColor } from "../lib/theme";
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { copy2clipboard, HSL2ComputedColor, setStyleColor } from "../lib/utils";
@@ -9,7 +9,7 @@ export function Item({
   theme,
   onSave,
 }: {
-  theme: ReadonlyThemeWithHSLColor;
+  theme: ThemeWithHSLColor;
   onSave: () => void;
 }) {
   const [color, setColor] = useState<string>("#000");
