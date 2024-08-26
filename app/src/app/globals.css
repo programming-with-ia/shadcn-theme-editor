@@ -16,12 +16,12 @@
     35deg,
     transparent 60%,
     hsla(var(--primary) / 0.2) 100%
-    );
+  );
 }
 .gradient_body {
   background: var(--main-gradient);
   background-attachment: fixed;
-  @apply bg-background
+  @apply bg-background;
 }
 svg {
   shape-rendering: crispEdges;
@@ -80,13 +80,10 @@ svg rect {
   display: none !important;
 }
 #shadcn-theme-editor {
-  @apply w-fit
+  @apply w-fit;
 }
 div[role="dialog"] > #shadcn-theme-editor > aside {
-  @apply !flex flex-col !static !bg-transparent
-}
-#shadcn-theme-editor> aside  > :nth-last-child(2) {
-  @apply flex-1
+  @apply !flex flex-col !static !bg-transparent;
 }
 
 @layer base {
@@ -113,7 +110,8 @@ div[role="dialog"] > #shadcn-theme-editor > aside {
     --radius: 0.5rem;
   }
 
-  .dark, noname {
+  .dark,
+  noname {
     --background: 189 77% 5%;
     --foreground: 187 21% 75%;
     --muted: 189 12% 15%;
@@ -135,7 +133,6 @@ div[role="dialog"] > #shadcn-theme-editor > aside {
     --ring: 187 78% 39%;
   }
 }
-
 
 @layer base {
   * {

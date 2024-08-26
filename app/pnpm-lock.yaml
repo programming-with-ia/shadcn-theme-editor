@@ -168,8 +168,8 @@ importers:
         specifier: ^2.12.7
         version: 2.12.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       shadcn-theme-editor:
-        specifier: ^1.0.0
-        version: 1.0.0(@types/react@18.3.3)(next-themes@0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        specifier: 1.3.0-beta
+        version: 1.3.0-beta(@types/react@18.3.3)(next-themes@0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       sonner:
         specifier: ^1.5.0
         version: 1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1616,6 +1616,9 @@ packages:
   embla-carousel@8.1.8:
     resolution: {integrity: sha512-KuHPA8qcAts6YE6ELtt38XYAb26hnKw8Ga0lSXmrhm1oI97t6oACFkqSsy33dfeZQEhaZB6VwWvaWQJRJVgSgA==}
 
+  emittor@0.1.0:
+    resolution: {integrity: sha512-+VP1/JIBNjQvH829slenIUfb9Sc/P7QjgK0zwqMW6hwKDD1HrDIlVFqD6kJZX1T2lOfeJpdcwM5lbMEyBqIPtQ==}
+
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
 
@@ -2561,8 +2564,8 @@ packages:
     resolution: {integrity: sha512-7PGFlmtwsEADb0WYyvCMa1t+yke6daIG4Wirafur5kcf+MhUnPms1UeR0CKQdTZD81yESwMHbtn+TR+dMviakQ==}
     engines: {node: '>= 0.4'}
 
-  shadcn-theme-editor@1.0.0:
-    resolution: {integrity: sha512-kPEQsm7dHac99Jig7scLHGKriQ4yPBxWruQ/UQjQvaJ5SDftj/F/C/V0uLeQlZaPGGsTBORV56SGHmnB5fxN6g==}
+  shadcn-theme-editor@1.3.0-beta:
+    resolution: {integrity: sha512-bjmfWFHVNW9iXMyzrwS6ldl9SxedW9j9XHycPXGCgHZgoVSCHl5WNNQD9QC+JuOEPO4U0+SHP++wV/XK1BWdBA==}
     peerDependencies:
       next-themes: ^0.3.0
       react: ^18.3.1
@@ -4314,6 +4317,8 @@ snapshots:
 
   embla-carousel@8.1.8: {}
 
+  emittor@0.1.0: {}
+
   emoji-regex@8.0.0: {}
 
   emoji-regex@9.2.2: {}
@@ -5430,20 +5435,19 @@ snapshots:
       functions-have-names: 1.2.3
       has-property-descriptors: 1.0.2
 
-  shadcn-theme-editor@1.0.0(@types/react@18.3.3)(next-themes@0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
+  shadcn-theme-editor@1.3.0-beta(@types/react@18.3.3)(next-themes@0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
     dependencies:
       '@radix-ui/react-slot': 1.1.0(@types/react@18.3.3)(react@18.3.1)
       class-variance-authority: 0.7.0
       clsx: 2.1.1
       colord: 2.9.3
+      emittor: 0.1.0
       lodash.debounce: 4.0.8
       next-themes: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
-      tailwindcss: 3.4.10
       zod: 3.23.8
     transitivePeerDependencies:
       - '@types/react'
-      - ts-node
 
   shebang-command@2.0.0:
     dependencies:
