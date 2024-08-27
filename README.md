@@ -95,7 +95,6 @@ and use
 
 ## Upcoming Features
 
-- Randomize
 - use [jln themes](https://ui.jln.dev/) directly in your project
 
 ## Special Thanks

@@ -11,7 +11,7 @@ function EditorOpenBtn() {
         onClick={() => setIsOpen(!IsOpen)}
         className="fixed bottom-2 right-2 z-[35] opacity-50 hover:opacity-100"
       >
-        Theme Editor
+        {IsOpen ? "Close" : "Open"} Theme Editor
       </Button>
       <Sidebar isOpen={IsOpen} />
     </div>
