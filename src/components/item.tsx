@@ -1,5 +1,5 @@
 import { ThemeWithHSLColor } from "../lib/theme";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { copy2clipboard, HSL2ComputedColor, setStyleColor } from "../lib/utils";
 import { useDebounceCallback } from "../hooks/useDebounceCallback";
@@ -17,10 +17,13 @@ export function Item({
   useEffect(() => {
     setColor(colord(theme.color).toHex());
   }, [theme]);
-  const updateValue = useDebounceCallback(() => {
-    setStyleColor(theme.variable, colord(color).toHsl());
-    onSave();
-  }, 0);
+  const updateValue = useCallback(
+    useDebounceCallback((color: string) => {
+      setStyleColor(theme.variable, colord(color).toHsl());
+      onSave();
+    }, 0),
+    [theme.variable]
+  );
   return (
     <Button
       variant={"colorbtn"}
@@ -39,7 +42,9 @@ export function Item({
             // defaultValue={colord(color).toHex()}
             value={color}
             type="color"
-            onChange={(e) => (setColor(e.target.value), updateValue())}
+            onChange={(e) => (
+              setColor(e.target.value), updateValue(e.target.value)
+            )}
             className="absolute cursor-pointer inset-1/2 size-[calc(100%+12px)] -translate-x-1/2 -translate-y-1/2 flex-shrink-0 bg-transparent"
           />
         </div>
