@@ -16,9 +16,7 @@ export function ResetTheme() {
         e.ctrlKey
           ? ls.deleteAllThemes()
           : localStorage.removeItem(LOCAL_STORAGE_KEY + ":" + currentTheme),
-        // resetTheme(),
         themeEmittor.setDefaultTheme()
-        // window.location.reload()
       )}
     >
       <ResetIcon />

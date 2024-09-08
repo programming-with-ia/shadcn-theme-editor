@@ -5,16 +5,21 @@ import { CopyTheme } from "./copy-theme";
 import ThemeToggle from "./theme-toggle";
 import RandomBtn from "./random";
 import SidebarSection from "./sidebar-section";
+import { Button } from "./ui/button";
+import { X } from "./icons";
 
-export function Sidebar({ isOpen }: { isOpen: boolean }) {
+export function Sidebar({ state }: { state: {isOpen: boolean, setIsOpen: (state: boolean)=>void} }) {
   return (
     <aside
       role="dialog"
       className={cn(
-        "fixed customScrollBar duration-500 left-0 inset-y-0 z-50 hidden h-screen max-h-screen w-fit shrink-0 bg-background overflow-y-auto py-6 pl-8 pr-6 lg:py-8 border-r-2 shadow-md drop-shadow-sm",
-        isOpen && "md:flex flex-col"
+        "fixed customScrollBar group duration-500 left-0 inset-y-0 z-50 hidden h-screen max-h-screen w-fit shrink-0 bg-background overflow-y-auto py-6 pl-8 pr-6 lg:py-8 border-r-2 shadow-md drop-shadow-sm",
+        state.isOpen && "md:flex flex-col"
       )}
     >
+      <Button onClick={()=>state.setIsOpen(!state.isOpen)} className="fixed top-0 right-0 m-2 opacity-0 group-hover:opacity-50 hover:!opacity-100" size={"toolbtn"} variant={"toolbtn"}>
+        <X className="size-5" />
+      </Button>
       <div className="flex items-center px-2 py-1 font-semibold">
         Shadcn Theme Editor
       </div>

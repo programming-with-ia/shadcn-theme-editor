@@ -27,9 +27,10 @@ export function Item({
   return (
     <Button
       variant={"colorbtn"}
+      className=" select-none"
       asChild
       title={theme.variable + ": " + HSL2ComputedColor(theme.color) + ";"}
-      onClick={() =>
+      onDoubleClick={() =>
         copy2clipboard(
           theme.variable + ": " + HSL2ComputedColor(theme.color) + ";"
         )

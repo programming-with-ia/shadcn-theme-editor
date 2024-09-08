@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { createRandomTheme } from "../lib/create-theme-config";
 import { useTheme } from "next-themes";
 import {
   getComputedHSLColor,
   saveTheme,
-  setColorsProperties,
 } from "../lib/utils";
 import { Dices, Lock, UnLock } from "./icons";
-import {
-  SystemThemes,
-  themeModes,
-  ThemeWithHSLColor,
-} from "../lib/theme";
+import { SystemThemes, themeModes, ThemeWithHSLColor } from "../lib/theme";
 import { themeEmittor } from "../lib/emittors";
 
 function RandomBtn() {
@@ -34,17 +29,13 @@ function RandomBtn() {
     let theme;
 
     if (SystemThemes.includes(resolvedTheme as any)) {
-      theme = themes[
-        resolvedTheme as themeModes
-      ] as ThemeWithHSLColor[];
+      theme = themes[resolvedTheme as themeModes] as ThemeWithHSLColor[];
       SystemThemes.forEach((theme) => saveTheme(theme, themes[theme])); // save both themes
     } else {
       theme = themes[systemTheme as themeModes] as ThemeWithHSLColor[];
       saveTheme(resolvedTheme, theme);
     }
-    themeEmittor.applyTheme(theme)
-    // themeEmittor.e.setState(theme)
-    // setColorsProperties(theme);
+    themeEmittor.applyTheme(theme);
   };
   const LockIcon = lockPrimary ? Lock : UnLock;
   return (

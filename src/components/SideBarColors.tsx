@@ -10,7 +10,10 @@ import { useEmittor } from "emittor";
 import { themeEmittor } from "../lib/emittors";
 
 function print(...props: any) {
-  if (typeof window !== "undefined" && (window as any).shadcnThemeEditorDebugMode) {
+  if (
+    typeof window !== "undefined" &&
+    (window as any).shadcnThemeEditorDebugMode
+  ) {
     console.log(...props);
   }
 }
@@ -28,7 +31,6 @@ const ZodTheme = z.array(
 );
 
 function SideBarColors() {
-  // const { resolvedTheme: currentTheme } = useTheme();
 
   const { resolvedTheme } = useTheme();
   const [currentTheme, setCurrentTheme] = useState<string | undefined>();
@@ -53,22 +55,16 @@ function SideBarColors() {
         const isValid = ZodTheme.parse(theme);
         print("theme is valid and appling", isValid);
         print("applied theme", theme);
-        themeEmittor.applyTheme(theme)
-        // setColorsProperties(theme);
-        // setColors(theme);
+        themeEmittor.applyTheme(theme);
         return;
       } catch (error) {
         print("invalid theme found in localStorage");
         // localStorage.removeItem(LOCAL_STORAGE_KEY+":"+currentTheme); //* remove key
       }
     }
-    // resetTheme()
-    // theme = getColors(true) as any;
-    // theme = getDefaultTheme()
     print("theme not found in localStorage");
     print("Now theme: ", theme);
-    // setColors(theme as any);
-    themeEmittor.setDefaultTheme()
+    themeEmittor.setDefaultTheme();
   }, [currentTheme]);
   return (
     <>
