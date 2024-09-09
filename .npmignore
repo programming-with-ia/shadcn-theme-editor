@@ -11,3 +11,5 @@ tailwind.config.js
 screenshots
 tempCodeRunnerFile.*
 .release-it.json
+.github
+.vscode

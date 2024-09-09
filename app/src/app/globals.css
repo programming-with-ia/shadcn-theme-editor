@@ -86,6 +86,10 @@ div[role="dialog"] > #shadcn-theme-editor > aside {
   @apply !flex flex-col !static !bg-transparent;
 }
 
+#shadcn-theme-editor > aside > button.fixed {
+  @apply !hidden
+}
+
 @layer base {
   :root {
     --background: 180 10% 96%;
