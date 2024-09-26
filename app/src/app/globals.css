@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .masked-element {
-  -webkit-mask-image: url('/wave-haikei (1).svg');
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: cover;
-  mask-image: url('/wave-haikei (1).svg');
-  mask-repeat: no-repeat;
-  mask-size: cover;
-} */
-
 :root {
   --main-gradient: linear-gradient(
     35deg,
@@ -143,6 +134,35 @@ div[role="dialog"] > #shadcn-theme-editor > aside {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground size-full;
   }
 }
+
+:host,
+html,
+body {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  font-feature-settings:
+  'rlig' 1,
+  'calt' 1;
+}
+
+svg {
+  shape-rendering: crispEdges;
+}
+
+svg circle,
+svg line,
+svg path,
+svg polygon,
+svg rect {
+  shape-rendering: geometricprecision;
+}
+

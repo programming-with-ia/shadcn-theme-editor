@@ -1,11 +1,12 @@
-import { brandConfig } from "@/lib/brand-config";
+import { siteConfig } from "@/lib/site-config";
 import React from "react";
 
 function GithubCorner() {
   return (
     <>
       <a
-        href={brandConfig.github}
+        target="_blank"
+        href={siteConfig.github}
         className="github-corner"
         aria-label="View source on GitHub"
       >

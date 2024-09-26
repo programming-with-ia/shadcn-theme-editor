@@ -20,9 +20,9 @@ import { cn } from "@/lib/utils";
 export const Cards = () => {
   return (
     <div>
-      <div className="mx-auto flex max-w-screen-md flex-col gap-2 pb-8 text-center text-sm"></div>
-      <div className="items-start gap-6 md:grid lg:grid-cols-2 xl:grid-cols-3">
-        <div className="flex flex-col gap-6">
+      <div className="mx-auto flex max-w-screen-md flex-col gap-2 pb-8 text-center text-sm overflow-visible min-h-fit"></div>
+      <div className="columns-sm gap-4 space-y-4 [&>*]:break-inside-avoid">
+        {/* <div className="flex flex-col gap-6"> */}
           <DemoContainer>
             <Notifications />
           </DemoContainer>
@@ -38,9 +38,9 @@ export const Cards = () => {
           <DemoContainer>
             <CreateAccount />
           </DemoContainer>
-        </div>
+        {/* </div> */}
 
-        <div className="flex flex-col gap-6">
+        {/* <div className="flex flex-col gap-6"> */}
           <DemoContainer>
             <ShareDocument />
           </DemoContainer>
@@ -56,8 +56,8 @@ export const Cards = () => {
           <DemoContainer className="py-12">
             <PopoverDemo />
           </DemoContainer>
-        </div>
-        <div className="flex flex-col gap-6">
+        {/* </div> */}
+        {/* <div className="flex flex-col gap-6"> */}
           <DemoContainer>
             <Chat />
           </DemoContainer>
@@ -73,7 +73,7 @@ export const Cards = () => {
           <DemoContainer>
             <Invoices />
           </DemoContainer>
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );
