@@ -10,6 +10,7 @@ import { joinPaths } from "@/lib/utils";
 import { siteConfig } from "@/lib/site-config";
 import { RiTwitterXLine, RiGithubFill } from "react-icons/ri";
 import { TbMail } from "react-icons/tb";
+import DisplayContainer from "@/components/display-container";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,6 +45,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: { url: siteConfig.url, title: "Home" },
     languages: { en: [{ url: siteConfig.url, title: "Home" }] },
+    types: {
+      "Home" : siteConfig.url,
+      "NPM Package": siteConfig.npm,
+      "GitHub Repository": siteConfig.github,
+      "Docs": siteConfig.docs
+    }
   },
   openGraph: {
     type: "website",
@@ -111,7 +118,7 @@ export default async function RootLayout({
             <ThemeEditor />
           </main>
           <GithubCorner />
-          <footer className="py-8 flex md:flex-row flex-col items-center md:px-8 px-4 lg:px-12 max-w-[1700px] mx-auto bg-accent text-accent-foreground mt-10 md:mt-16">
+          <DisplayContainer As="footer" waveColors={{c1: "fill-accent"}} bottom className="pb-8 pt-1 flex md:flex-row flex-col items-center md:px-8 px-4 lg:px-12 max-w-[1700px] mx-auto bg-accent text-accent-foreground" containerClassName="mt-10 md:mt-16">
               {/* <Container> */}
               <p>Built with <span className="text-destructive-foreground font-extrabold text-red-500" title="love" aria-label="love" style={{fontFamily: '"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"'}}>♥️</span> by <a href='https://github.com/programming-with-ia' className="underline underline-offset-1" target="_blank">immi</a></p>
               <div className="flex items-center mt-4 sm:mt-0 md:ml-auto">
@@ -129,7 +136,7 @@ export default async function RootLayout({
                 ))}
               </div>
               {/* </Container> */}
-            </footer>
+            </DisplayContainer>
         </ThemeProvider>
       </body>
     </html>

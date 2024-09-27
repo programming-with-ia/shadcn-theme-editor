@@ -51,6 +51,7 @@ export const siteConfig = {
   },
   github: "https://github.com/programming-with-ia/shadcn-theme-editor/",
   npm: "https://www.npmjs.com/package/shadcn-theme-editor",
+  docs: "https://github.com/programming-with-ia/shadcn-theme-editor#readme",
   images: [
     { width: 1200, height: 630 },
     { width: 1024, height: 512 },

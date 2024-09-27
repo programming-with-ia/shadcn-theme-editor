@@ -26,10 +26,11 @@ function ThemeEditor() {
           aria-label={(isOpen? 'Close': "Open")+' Editor'}
           variant={isOpen ? "secondary" : "default"}
           className={clsx(
-            "rounded-full px-3 py-3 fixed bottom-2 right-2 border shadow-md drop-shadow-sm z-20", !isOpen && 'opacity-70 hover:opacity-100 animate-bounce hover:animate-none'
+            "rounded-full px-3 py-3 fixed transition-all duration-300 border shadow-md drop-shadow-sm z-20 group overflow-hidden bottom-2 left-1/2 -translate-x-1/2", isOpen ? 'opacity-0': ''
           )}
         >
           <ColorPalette size={24} />
+          <span className="group-hover:w-40 group-hover:opacity-100 w-0 opacity-0 transition-all duration-300">Shadcn Theme Editor</span>
         </Button>
       </SheetTrigger>
       <SheetContent
