@@ -62,7 +62,7 @@ pnpm add shadcn-theme-editor --save-dev
 `import { ThemeProvider } from 'next-themes';` -->
 
 ```tsx
-import ThemeEditor from "shadcn-theme-editor";
+import ShadcnThemeEditor from "shadcn-theme-editor";
 ```
 
 or (in this way, it doesn't include the component in the production build)
@@ -82,7 +82,7 @@ if (process.env.NODE_ENV === 'development') {
 and use
 
 ```tsx
-<ThemeEditor />
+<ShadcnThemeEditor />
 ```
 
 </br>

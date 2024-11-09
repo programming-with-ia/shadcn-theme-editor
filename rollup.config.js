@@ -22,16 +22,17 @@ export default [
   {
     input: "src/index.ts",
     output: [
-      // {
-      //   file: packageJson.main,
-      //   format: "cjs",
-      //   sourcemap: true,
-      // },
+      {
+        file: packageJson.main,
+        format: "cjs",
+        sourcemap: true,
+      },
       {
         file: packageJson.module,
         format: "esm",
-        // sourcemap: true,
+        sourcemap: true,
       },
+
     ],
     plugins: [
       peerDepsExternal(),
@@ -56,7 +57,7 @@ export default [
   },
   {
     input: "src/index.ts",
-    output: [{ file: "dist/index.d.ts" }],
+    output: [{ file: packageJson.types }],
     plugins: [dts.default()],
     external: [/\.css$/],
   },
