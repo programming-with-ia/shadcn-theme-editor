@@ -2,30 +2,25 @@ import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { createRandomTheme } from "../lib/create-theme-config";
 import { useTheme } from "next-themes";
-import {
-  getComputedHSLColor,
-  saveTheme,
-} from "../lib/utils";
+import { getComputedHSLColor, saveTheme } from "../lib/utils";
 import { Dices, Lock, UnLock } from "./icons";
 import { SystemThemes, themeModes, ThemeWithHSLColor } from "../lib/theme";
 import { themeEmittor } from "../lib/emittors";
+import { useIsMount } from "../hooks/useIsMount";
 
 function RandomBtn() {
-  const {
-    resolvedTheme: NresolvedTheme = "" + undefined,
-    systemTheme: NsystemTheme = "dark",
-  } = useTheme();
-  const [resolvedTheme, setResolvedTheme] = useState<string>();
-  const [systemTheme, setSystemTheme] = useState<string>();
-  useEffect(() => {
-    setResolvedTheme(NresolvedTheme);
-    setSystemTheme(NsystemTheme);
-  }, [NresolvedTheme, NsystemTheme]);
+  const { resolvedTheme = "" + undefined, systemTheme = "dark" } = useTheme();
+
+  const isMount = useIsMount();
   const [lockPrimary, setLockPrimary] = useState(true);
+
+  if (!isMount) return null;
+
   const onClickHandler = () => {
     const themes = createRandomTheme(
       lockPrimary ? getComputedHSLColor("--primary") : undefined
     );
+
     let theme;
 
     if (SystemThemes.includes(resolvedTheme as any)) {
@@ -37,7 +32,9 @@ function RandomBtn() {
     }
     themeEmittor.applyTheme(theme);
   };
+
   const LockIcon = lockPrimary ? Lock : UnLock;
+
   return (
     <Button
       onClick={onClickHandler}
