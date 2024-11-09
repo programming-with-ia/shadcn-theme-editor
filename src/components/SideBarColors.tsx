@@ -1,39 +1,19 @@
-import { getColors, ls, resetTheme, setColorsProperties } from "../lib/utils";
-import React, { useEffect, useState } from "react";
+import { getColors, ls, print } from "../lib/utils";
+import { useEffect, useState } from "react";
 import { Item } from "./item";
-import { ThemeWithHSLColor } from "../lib/theme";
 import { useTheme } from "next-themes";
 import { useDebounceCallback } from "../hooks/useDebounceCallback";
-import z from "zod";
 import { LOCAL_STORAGE_KEY } from "../lib/consts";
 import { useEmittor } from "emittor";
 import { themeEmittor } from "../lib/emittors";
-
-function print(...props: any) {
-  if (
-    typeof window !== "undefined" &&
-    (window as any).shadcnThemeEditorDebugMode
-  ) {
-    console.log(...props);
-  }
-}
-
-const ZodTheme = z.array(
-  z.object({
-    title: z.string(),
-    variable: z.string(),
-    color: z.object({
-      h: z.number(),
-      s: z.number(),
-      l: z.number(),
-    }),
-  })
-);
+import { setSavedTheme } from "../lib/set-saved-theme";
+import { useIsMount } from "../hooks/useIsMount";
 
 function SideBarColors() {
-
   const { resolvedTheme } = useTheme();
   const [currentTheme, setCurrentTheme] = useState<string | undefined>();
+  const isMount = useIsMount();
+
   useEffect(() => {
     setCurrentTheme(resolvedTheme);
   }, [resolvedTheme]);
@@ -45,27 +25,21 @@ function SideBarColors() {
   }, 2000);
 
   useEffect(() => {
-    // resetTheme();
-    print("reading theme", LOCAL_STORAGE_KEY + ":" + currentTheme);
-    let theme = ls.getLocalStorageItem<ThemeWithHSLColor[]>(
-      LOCAL_STORAGE_KEY + ":" + currentTheme
-    );
-    if (theme) {
+    let isSavedThemeApplied = false;
+    if (typeof colors == "undefined" || isMount) {
+      // If colors are not defined (i.e., they haven't been set by other functions yet, meaning it's the first time),
+      // or if this is due to a re-render caused by dependency changes (e.g., when currentTheme is updated).
       try {
-        const isValid = ZodTheme.parse(theme);
-        print("theme is valid and appling", isValid);
-        print("applied theme", theme);
-        themeEmittor.applyTheme(theme);
+        isSavedThemeApplied = setSavedTheme(currentTheme);
         return;
-      } catch (error) {
-        print("invalid theme found in localStorage");
-        // localStorage.removeItem(LOCAL_STORAGE_KEY+":"+currentTheme); //* remove key
-      }
+      } catch (error) {}
     }
-    print("theme not found in localStorage");
-    print("Now theme: ", theme);
-    themeEmittor.setDefaultTheme();
+
+    if (typeof colors == "undefined") {
+      themeEmittor.setDefaultTheme();
+    }
   }, [currentTheme]);
+
   return (
     <>
       {colors?.map((color) => (

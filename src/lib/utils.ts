@@ -5,6 +5,7 @@ import {
   themeColors,
 } from "./theme";
 import { LOCAL_STORAGE_KEY } from "./consts";
+import { z } from "zod";
 
 export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);
@@ -124,3 +125,24 @@ export const ls = {
 export function saveTheme(key: string | undefined, theme: ThemeWithHSLColor[]){
   ls.setLocalStorage(LOCAL_STORAGE_KEY + ":" + key, theme);
 }
+
+export function print(...props: any) {
+  if (
+    typeof window !== "undefined" &&
+    (window as any).shadcnThemeEditorDebugMode
+  ) {
+    console.log(...props);
+  }
+}
+
+export const ZodTheme = z.array(
+  z.object({
+    title: z.string(),
+    variable: z.string(),
+    color: z.object({
+      h: z.number(),
+      s: z.number(),
+      l: z.number(),
+    }),
+  })
+);

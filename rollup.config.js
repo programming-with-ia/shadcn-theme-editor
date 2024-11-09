@@ -25,12 +25,12 @@ export default [
       {
         file: packageJson.main,
         format: "cjs",
-        sourcemap: true,
+        // sourcemap: true,
       },
       {
         file: packageJson.module,
         format: "esm",
-        sourcemap: true,
+        // sourcemap: true,
       },
 
     ],
@@ -62,3 +62,11 @@ export default [
     external: [/\.css$/],
   },
 ];
+
+// export default {
+//   input: 'src/index.js',
+//   output: 'dist/index.js',
+//   format: 'esm',
+//   exports: 'named', /** Disable warning for default imports */
+//   sourcemap: true,
+// };
