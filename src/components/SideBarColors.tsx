@@ -25,20 +25,16 @@ function SideBarColors() {
   }, 2000);
 
   useEffect(() => {
-    let isSavedThemeApplied = false;
     if (typeof colors == "undefined" || isMount) {
       // If colors are not defined (i.e., they haven't been set by other functions yet, meaning it's the first time),
       // or if this is due to a re-render caused by dependency changes (e.g., when currentTheme is updated).
-      try {
-        isSavedThemeApplied = setSavedTheme(currentTheme);
-        return;
-      } catch (error) {}
+      if (setSavedTheme(currentTheme)) return; // isSavedThemeApplied
     }
 
     if (typeof colors == "undefined") {
       themeEmittor.setDefaultTheme();
     }
-  }, [currentTheme]);
+  }, [currentTheme, isMount]);
 
   return (
     <>
