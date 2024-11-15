@@ -93,6 +93,9 @@ and use
   <img align="center" src="https://raw.githubusercontent.com/programming-with-ia/shadcn-theme-editor/master/screenshots/shadcn-theme-editor.png" alt="logo">
 </p>
 
+## [How to Use the UI](usage.md)
+[usage.md](usage.md)
+
 ## Upcoming Features
 
 - use [jln themes](https://ui.jln.dev/) directly in your project
