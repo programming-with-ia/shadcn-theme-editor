@@ -19,6 +19,7 @@ export default function ThemeToggle() {
         ] as const
       ).map(([themeN, Icon]) => (
         <button
+          key={themeN}
           className={cn(
             "rounded-full p-2",
             theme == themeN
