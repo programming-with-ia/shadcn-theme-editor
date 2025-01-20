@@ -31,9 +31,7 @@ function SideBarColors() {
       if (setSavedTheme(currentTheme)) return; // isSavedThemeApplied
     }
 
-    if (typeof colors == "undefined") {
-      themeEmittor.setDefaultTheme();
-    }
+    themeEmittor.setDefaultTheme();
   }, [currentTheme, isMount]);
 
   return (
