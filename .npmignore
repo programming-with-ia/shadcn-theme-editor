@@ -1,16 +1,9 @@
-node_modules
-src
-app
-rollup.config.js
-tsconfig.json
-.gitignore
-site
-tailwind.config.js
-*.py
-*.tgz
-screenshots
-tempCodeRunnerFile.*
-.release-it.json
-.github
-.vscode
-.gitattributes
+# Ignore everything
+*
+
+# Whitelist dist folder and README.md
+!dist/
+!README.md
+!usage.md
+!package.json
+!LICENSE
