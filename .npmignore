@@ -2,7 +2,7 @@
 *
 
 # Whitelist dist folder and README.md
-!dist/
+!dist/*
 !README.md
 !usage.md
 !package.json
