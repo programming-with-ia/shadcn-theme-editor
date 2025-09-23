@@ -1,0 +1,36 @@
+{
+  "name": "shadcn-theme-editor-new-turbo",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --filter=web --filter=shadcn-theme-editor",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types",
+    "pkg-build": "turbo run build --filter=shadcn-theme-editor && tsx scripts/scaflo.ts",
+    "publish:pkg": "pnpm run package-build && pnpm publish --filter shadcn-theme-editor",
+    "publish:pkg:dry": "turbo run build --filter=shadcn-theme-editor && pnpm publish --filter shadcn-theme-editor --dry-run --no-git-checks"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "del-cli": "^7.0.0",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tsx": "^4.20.5",
+    "turbo": "^2.5.6",
+    "typescript": "5.9.2",
+    "typescript-eslint": "^8.27.0"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "fs-extra": "^11.3.2",
+    "scaflo": "^0.0.4"
+  }
+}

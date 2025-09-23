@@ -1,0 +1,4 @@
+packages:
+  - "web"
+  - "shadcn-theme-editor"
+  - "testapps/*"

@@ -1,0 +1,69 @@
+{
+  "name": "shadcn-theme-editor",
+  "version": "2.0.0-alpha.2",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "usage.md"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "pnpm clean && tsup",
+    "clean": "del-cli dist ./*.tgz",
+    "release": "pnpm release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/programming-with-ia/shadcn-theme-editor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/programming-with-ia/shadcn-theme-editor/issues"
+  },
+  "homepage": "https://github.com/programming-with-ia/shadcn-theme-editor#readme",
+  "keywords": [
+    "shadcn-theme-editor",
+    "shadcn theme editor",
+    "shadcn",
+    "shadcn-ui",
+    "theme",
+    "color",
+    "next-themes",
+    "shadcn-ui",
+    "theme-edit",
+    "customization",
+    "personalization",
+    "colord",
+    "theme-customization"
+  ],
+  "author": "immi",
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/lodash.debounce": "^4.0.9",
+    "@types/node": "^24.3.1",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "cssnano": "^7.1.1",
+    "eslint": "^9.35.0",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "postcss-combine-media-query": "^2.0.0",
+    "postcss-merge-rules": "^7.0.6",
+    "release-it": "^19.0.5",
+    "tsup": "^8.5.0"
+  },
+  "dependencies": {
+    "emittor": "0.2.0-beta.1",
+    "lodash.debounce": "^4.0.8"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  }
+}
