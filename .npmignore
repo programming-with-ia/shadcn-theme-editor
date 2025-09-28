@@ -1,9 +1,0 @@
-# Ignore everything
-*
-
-# Whitelist dist folder and README.md
-!dist/*
-!README.md
-!usage.md
-!package.json
-!LICENSE
