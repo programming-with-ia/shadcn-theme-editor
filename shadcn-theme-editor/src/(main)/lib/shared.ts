@@ -23,6 +23,9 @@ export const sharedData: {
 
   // all colors:
   allColors: CustomColors; //! currently no need to shared
+
+  // Returns the container element to which styles will be applied
+  getContainer: () => HTMLElement;
 } = {
   toCssString: undefined as never,
   getCopyValue: undefined as never,
@@ -32,4 +35,5 @@ export const sharedData: {
   success: true,
   defaultThemeEmittor: createEmittor({}),
   allColors: {},
+  getContainer: () => document.documentElement,
 };

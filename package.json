@@ -7,9 +7,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "pkg-build": "turbo run build --filter=shadcn-theme-editor && tsx scripts/scaflo.ts",
-    "publish:pkg": "pnpm run package-build && pnpm publish --filter shadcn-theme-editor",
-    "publish:pkg:dry": "turbo run build --filter=shadcn-theme-editor && pnpm publish --filter shadcn-theme-editor --dry-run --no-git-checks"
+    "pkg-build": "turbo run build --filter=shadcn-theme-editor && tsx scripts/scaflo.ts"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
