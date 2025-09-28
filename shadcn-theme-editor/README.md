@@ -1,22 +1,22 @@
 <div align="center">
-<h1 align="center">Shadcn Theme Editor</h1>
-<h3>Effortless Shadcn Theme Customization Made Simple.</h3>
-<h5>◦ Manage Shadcn theme colors with an intuitive UI.</h5>
 
-<p align="center">
+# 🎨 Shadcn Theme Editor
+
+**Effortless Shadcn Theme Customization Made Simple**
+
+Manage Shadcn theme colors with an **intuitive UI**, adjust styles in real-time, and keep your design consistent without diving into raw CSS.
+
+---
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000.svg?style&logo=Next.js&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB.svg?style&logo=React&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6.svg?style&logo=TypeScript&logoColor=white)
 
-</p>
-
-![git-last-commit](https://img.shields.io/github/last-commit/programming-with-ia/shadcn-theme-editor)
+![GitHub last commit](https://img.shields.io/github/last-commit/programming-with-ia/shadcn-theme-editor)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/programming-with-ia/shadcn-theme-editor)
 ![GitHub top language](https://img.shields.io/github/languages/top/programming-with-ia/shadcn-theme-editor)
 
-![minified size](https://badgen.net/bundlephobia/min/shadcn-theme-editor@latest)
-
+![npm bundle size](https://badgen.net/bundlephobia/min/shadcn-theme-editor@latest)
 [![NPM Version](https://img.shields.io/npm/v/shadcn-theme-editor?logo=npm)](https://www.npmjs.com/package/shadcn-theme-editor)
 [![GitHub](https://img.shields.io/badge/shadcn_theme_editor-161b22?logo=github)](https://github.com/programming-with-ia/shadcn-theme-editor)
 
@@ -24,18 +24,26 @@
 
 ---
 
-## 📍 Overview
+# 📍 Overview
 
-Shadcn Theme Editor is a user-friendly component designed to simplify the process of managing and customizing theme colors in Shadcn-based projects. This package provides an intuitive UI with buttons for different color properties, allowing developers to easily adjust and preview theme colors in real-time. Although the package is optimized for ease of use, its build size is substantial, so it is recommended to install it as a development dependency. This tool empowers developers to create consistent, visually appealing themes without diving into complex CSS, making it an essential addition to your Shadcn toolkit.
+The **Shadcn Theme Editor** is a lightweight component designed to simplify theme customization in Shadcn projects.
+
+- 🎛 **Visual UI** for adjusting theme colors  
+- ⚡ **Real-time preview** of changes  
+- 🌗 **Supports light & dark mode** via the `html.dark` class
+- 🛠 Works seamlessly with Shadcn components  
+- 📦 Install as a **dev dependency** (recommended, due to bundle size)  
+
+This makes it a **must-have dev tool** for anyone building with [shadcn/ui](https://ui.shadcn.com/).
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Installation
 
 There are two ways to install **shadcn-theme-editor**:
 
-1. [**Using npm (installs into `devDependencies`)**](#install-npm)  
-2. [**Using the Shadcn CLI (adds components directly to your project)**](#install-shadcn-cli)
+1. **[Via npm/yarn/pnpm/bun](#install-npm)** (as a dev dependency)  
+2. **[Via Scaflo CLI](#install-scaflo-cli)** (copies fully editable components)  
 
 ---
 
@@ -57,32 +65,35 @@ pnpm add -D shadcn-theme-editor
 bun add -D shadcn-theme-editor
 ```
 
-> This method keeps the package inside `node_modules` and lists it under `devDependencies` in `package.json`.
-
 ---
 
-<h3 id="install-shadcn-cli">2️⃣ Install via Shadcn CLI</h3>
+<h3 id="install-scaflo-cli">2️⃣ Install via Scaflo CLI</h3>
 
-The Shadcn CLI copies the source components into your project so you can fully customize them.
+The [Scaflo CLI](https://github.com/programming-with-ia/scaflo) installs Shadcn Theme Editor as source components into your project, so you can fully customize them.
 
 ```bash
 # pnpm (recommended)
-pnpm dlx shadcn@latest add https://shadcnthemeeditor.vercel.app/r/editor.json
+pnpm dlx shadcn@latest add sheet button accordion
+pnpm dlx scaflo@0.0.4 https://shadcnthemeeditor.vercel.app/r/editor.json -e %COMPONENTS%/shadcn-theme-editor
 
 # or with npx
-npx shadcn@latest add https://shadcnthemeeditor.vercel.app/r/editor.json
+npx shadcn@latest add sheet button accordion
+npx scaflo@0.0.4 https://shadcnthemeeditor.vercel.app/r/editor.json -e %COMPONENTS%/shadcn-theme-editor
 
 # or with bun
-bunx shadcn@latest add https://shadcnthemeeditor.vercel.app/r/editor.json
+bunx shadcn@latest add sheet button accordion
+bunx scaflo@0.0.4 https://shadcnthemeeditor.vercel.app/r/editor.json -e %COMPONENTS%/shadcn-theme-editor
 ```
 
 Follow the CLI prompts to generate and configure the components inside your own codebase.
+
+> ⚠️ Note for **Next.js**: Add `"use client";` to `components/shadcn-theme-editor/index.tsx`.
 
 ---
 
 ## 📖 Usage
 
-**import default and add in `app/layout.tsx` file**
+Import the component and add it to your layout:
 
 <!-- 
 > **Tip**  
@@ -93,7 +104,8 @@ Follow the CLI prompts to generate and configure the components inside your own 
 import ShadcnThemeEditor from "shadcn-theme-editor";
 ```
 
-or (in this way, it doesn't include the component in the production build)
+### Load in Development Only
+Exclude the editor from production builds:
 
 ```tsx
 let ShadcnThemeEditor: any;
@@ -115,25 +127,29 @@ and use
 
 </br>
 
-# Screenshots
+## 🖼️ Screenshots
 
 <p align="center">
   <img align="center" src="https://raw.githubusercontent.com/programming-with-ia/shadcn-theme-editor/master/screenshots/shadcn-theme-editor.png" alt="logo">
 </p>
 
-## [How to Use the UI](usage.md)
-[usage.md](usage.md)
+For detailed UI examples, see: [usage.md](./usage.md)
 
-## Upcoming Features
+## ⚙️ Props
 
-- use [jln themes](https://ui.jln.dev/) directly in your project
+| Prop               | Type                     | Default                          | Description                                             |
+| ------------------ | ------------------------ | -------------------------------- | ------------------------------------------------------- |
+| `side`             | `"left"` | `"right"`     | `"left"`                         | Position of the editor sidebar.                         |
+| `className`        | `string`                 | `undefined`                      | Extra CSS classes for the root element.                 |
+| `triggerClassName` | `string`                 | `undefined`                      | Extra CSS classes for the trigger button.               |
+| `title`            | `string`                 | `"Shadcn Theme Editor"`          | Sidebar header text.                                    |
+| `customColors`     | `Record<string, string>` | `undefined`                      | Map of CSS vars → labels (e.g. `--primary: "Primary"`). |
+| `getContainer`     | `() => HTMLElement`      | `() => document.documentElement` | Element where dynamic styles will be injected.          |
 
-## Special Thanks
+## 🙌 Special Thanks
 
-I would like to extend my heartfelt thanks to the following individuals and projects:
-
-- **[Julian](https://github.com/jln13x)** - for creating [ui.jln.dev](https://ui.jln.dev/), 10000+ Themes for shadcn/ui.
+- [Julian](https://github.com/jln13x) creator of [ui.jln.dev](https://ui.jln.dev/), featuring 10,000+ Shadcn themes.
 
 ## 📄 License
 
-This project is licensed under the `ℹ️ MIT` License.
+Licensed under the MIT License.

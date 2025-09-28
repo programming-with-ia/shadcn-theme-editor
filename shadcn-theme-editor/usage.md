@@ -23,7 +23,3 @@
 - **Color Name/Title**: Displays the name of the color.
 - **Double-Click**: Copy the current color value to the clipboard.
 - **Hover**: Display the current value of the color in a tooltip.
-
-### 6. Theme Changer
-
-- Switch between theme modes: **System**, **Dark**, or **Light** using [`next-themes`](https://github.com/pacocoursey/next-themes).

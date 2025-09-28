@@ -49,7 +49,7 @@ export default function Editor({
   triggerClassName,
   toCssString,
   getCopyValue,
-  title,
+  title = "Shadcn Theme Editor",
   getContainer,
 }: {
   side?: Side;
@@ -196,7 +196,7 @@ export default function Editor({
   );
 }
 
-function Header({ title = "Shadcn Theme Editor" }: { title?: string }) {
+function Header({ title }: { title: string }) {
   return (
     <div className="border-b px-2 shadow-md">
       <span className="flex items-center px-2 py-1 font-semibold">{title}</span>
