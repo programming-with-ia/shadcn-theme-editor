@@ -1,6 +1,7 @@
 import fs from "fs-extra";
 import path from "path";
 import { fileURLToPath } from "url";
+import { editorMainPath, editorPath, outputPath } from "./paths";
 
 //* Scaflo types
 
@@ -20,12 +21,7 @@ type JsonStructure = {
   registryDependencies: string[]; //* modified (shadcn's components)
 };
 
-const currentFile = fileURLToPath(import.meta.url);
-const rootDir = path.resolve(path.dirname(currentFile), "..");
 
-const editorPath = path.join(rootDir, "/shadcn-theme-editor");
-const editorMainPath = path.join(editorPath, "/src/(main)/");
-const outputPath = path.join(rootDir, "/web/public/r/editor.json");
 
 fs.ensureDirSync(path.dirname(outputPath));
 

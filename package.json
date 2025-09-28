@@ -7,7 +7,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "pkg-build": "turbo run build --filter=shadcn-theme-editor && tsx scripts/scaflo.ts"
+    "pkg-build": "turbo run build --filter=shadcn-theme-editor && tsx scripts/scaflo.ts && tsx scripts/copy-files.ts"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
@@ -23,7 +23,7 @@
     "typescript": "5.9.2",
     "typescript-eslint": "^8.27.0"
   },
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@9.15.4",
   "engines": {
     "node": ">=18"
   },

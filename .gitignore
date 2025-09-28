@@ -42,3 +42,6 @@ todo_*
 tempCodeRunnerFile.*
 *.tgz
 /testapps
+
+shadcn-theme-editor/README.md
+shadcn-theme-editor/usage.md
