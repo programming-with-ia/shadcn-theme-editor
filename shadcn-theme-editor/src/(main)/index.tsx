@@ -49,12 +49,17 @@ export default function Editor({
   triggerClassName,
   toCssString,
   getCopyValue,
+  title,
+  getContainer,
 }: {
   side?: Side;
   className?: string;
   triggerClassName?: string;
+  title?: string;
 } & Pick<React.ComponentProps<typeof Sidebar>, "customColors"> &
-  Partial<Pick<typeof sharedData, "toCssString" | "getCopyValue">>) {
+  Partial<
+    Pick<typeof sharedData, "toCssString" | "getCopyValue" | "getContainer">
+  >) {
   //*
 
   useEffect(() => {
@@ -149,6 +154,8 @@ export default function Editor({
     sharedData.toCssString = toCssString ?? sharedData.toCssString;
     sharedData.getCopyValue = getCopyValue ?? sharedData.getCopyValue;
 
+    sharedData.getContainer = getContainer ?? sharedData.getContainer;
+
     checkLocalStorageTheme();
   }, []);
 
@@ -165,15 +172,16 @@ export default function Editor({
         <PaletteIcon className="size-6" />
       </SheetTrigger>
       <SheetContent
+        data-shadcn-theme-editor
         side={side}
         className={cn(
-          "bg-background flex flex-col overflow-hidden py-4 sm:max-w-72",
+          "bg-background flex flex-col gap-0 overflow-hidden py-4 sm:max-w-72",
           className,
         )}
       >
         {sharedData.success ? (
           <>
-            <Header />
+            <Header title={title} />
             <Sidebar customColors={customColors} />
             <Footer />
             <SheetClose />
@@ -188,12 +196,10 @@ export default function Editor({
   );
 }
 
-function Header() {
+function Header({ title = "Shadcn Theme Editor" }: { title?: string }) {
   return (
     <div className="border-b px-2 shadow-md">
-      <span className="flex items-center px-2 py-1 font-semibold">
-        Shadcn Theme Editor
-      </span>
+      <span className="flex items-center px-2 py-1 font-semibold">{title}</span>
       <div className="mb-1 mt-2 flex items-center justify-between gap-2 py-1 pl-2 text-sm font-semibold">
         Theming
         <div className="flex pr-2">

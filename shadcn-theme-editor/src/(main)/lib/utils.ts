@@ -5,7 +5,7 @@ export const copy2clipboard = (text: string) =>
 
 export function setProperity(proprity: string, value: string | null) {
   // document.querySelector(":root")?.style.setProperty(proprity, value);
-  document.documentElement?.style.setProperty(proprity, value);
+  sharedData.getContainer().style.setProperty(proprity, value);
 }
 
 export function memoize<Args extends unknown[], R>(
@@ -31,7 +31,7 @@ export function resetCurrentTheme(full = true) {
     Only perform a full theme reset if no saved theme was found.
     If a theme exists, keep some settings so the saved theme can override them later.
   */
-  const style = document.documentElement.style;
+  const style = sharedData.getContainer().style;
 
   Object.keys(sharedData.currentTheme).forEach((propertyName) =>
     style.removeProperty(propertyName),

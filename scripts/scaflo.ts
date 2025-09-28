@@ -2,6 +2,24 @@ import fs from "fs-extra";
 import path from "path";
 import { fileURLToPath } from "url";
 
+//* Scaflo types
+
+type FileWriteMethods = "a" | "w" | Record<string, string>; // Append, Write (default), or Replace key-value
+
+type FileType = {
+  name: string;
+  content: string;
+  method?: FileWriteMethods;
+};
+
+type JsonStructure = {
+  dependencies?: Array<string | Record<string, string>>;
+  files?: FileType[];
+  groups?: { base: string; files: FileType[] };
+
+  registryDependencies: string[]; //* modified (shadcn's components)
+};
+
 const currentFile = fileURLToPath(import.meta.url);
 const rootDir = path.resolve(path.dirname(currentFile), "..");
 
@@ -34,28 +52,36 @@ function getAllFileNames(dirPath: string): string[] {
   }
 }
 
-type RegistryFile = {
-  path: string;
-  type: "registry:component";
-  content: string;
-};
+function readDeps() {
+  const pkg = fs.readJsonSync(path.join(editorPath, "package.json"));
 
-type RegistryJson = {
-  $schema: string;
-  name: string;
-  type: "registry:component";
-  title: string;
-  description: string;
-  files: RegistryFile[];
-  dependencies: string[];
-  registryDependencies: string[];
-};
+  return Object.entries(pkg.dependencies).map(
+    ([name, version]) => `${name}@${version}`,
+  );
+}
+
+// type RegistryFile = {
+//   path: string;
+//   type: "registry:component";
+//   content: string;
+// };
+
+// type RegistryJson = {
+//   $schema: string;
+//   name: string;
+//   type: "registry:component";
+//   title: string;
+//   description: string;
+//   files: RegistryFile[];
+//   dependencies: string[];
+//   registryDependencies: string[];
+// };
 
 function generateShadcnRegistry(
   rootDir: string,
   _modify?: (content: string, filePath: string) => string,
-): RegistryJson {
-  const files: RegistryFile[] = [];
+): JsonStructure {
+  const files: FileType[] = [];
   const modify: NonNullable<typeof _modify> = _modify ?? ((content) => content);
 
   function walk(dir: string) {
@@ -74,8 +100,7 @@ function generateShadcnRegistry(
         const modified = modify(original, fullPath);
 
         files.push({
-          path: `registry/magicui/${path.relative(rootDir, fullPath).replace(/\\/g, "/")}`,
-          type: "registry:component",
+          name: `/${path.relative(rootDir, fullPath).replace(/\\/g, "/")}`,
           content: modified,
         });
       }
@@ -84,23 +109,28 @@ function generateShadcnRegistry(
 
   walk(rootDir);
 
-  const registry: RegistryJson = {
-    $schema: "https://ui.shadcn.com/schema/registry-item.json",
-    name: "Shadcn Theme Editor",
-    type: "registry:component",
-    title: "Shadcn Theme Editor",
-    description:
-      "Shadcn Theme Editor is a user-friendly component designed to simplify the process of managing and customizing theme colors in Shadcn-based projects.",
+  const registry: JsonStructure = {
+    // $schema: "https://ui.shadcn.com/schema/registry-item.json",
+    // name: "Shadcn Theme Editor",
+    // type: "registry:component",
+    // title: "Shadcn Theme Editor",
+    // description:
+    //   "Shadcn Theme Editor is a user-friendly component designed to simplify the process of managing and customizing theme colors in Shadcn-based projects.",
     files,
     registryDependencies: getAllFileNames(
       path.join(editorPath, "/src/components/ui"),
     ),
-    dependencies: ["lucide-react"],
+    dependencies: ["lucide-react", ...readDeps()],
   };
 
   return registry;
 }
 
 console.log("⏳  Starting Shadcn registry generation…");
-fs.writeJSONSync(outputPath, generateShadcnRegistry(editorMainPath));
+fs.writeJSONSync(
+  outputPath,
+  generateShadcnRegistry(editorMainPath, (content) =>
+    content.replace("@/components/icons", "lucide-react"),
+  ),
+);
 console.log(`✅  Registry successfully generated at: ${outputPath}`);
