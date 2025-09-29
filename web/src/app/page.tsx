@@ -5,9 +5,10 @@ import { ChevronRight } from "lucide-react";
 import { SiGithub, SiNpm } from "@icons-pack/react-simple-icons";
 import { PaletteIcon } from "shadcn-theme-editor";
 import Cards from "@/cards";
+import CustomizeBtn from "./customize-click";
 export default function HomePage() {
   return (
-    <main className="mx-auto flex min-h-screen mt-20 max-w-[1700px] flex-col justify-between px-4 md:px-8 lg:px-12">
+    <main className="mx-auto mt-20 flex min-h-screen max-w-[1700px] flex-col justify-between px-4 md:px-8 lg:px-12">
       <DisplayContainer
         As="section"
         className="gap-1 p-8 text-center md:p-16 lg:p-24"
@@ -27,7 +28,7 @@ export default function HomePage() {
           the process of managing and customizing theme colors in Shadcn-based
           projects
         </p>
-        <div className="relative mt-10 flex flex-wrap justify-center gap-3">
+        <div className="relative mt-10 flex flex-col flex-wrap justify-center gap-3 md:flex-row items-center">
           <Button
             asChild
             className="group/btn w-32 gap-1"
@@ -41,14 +42,15 @@ export default function HomePage() {
               />
             </a>
           </Button>
-          <Button variant={"default"}>
+          <Button variant={"default"} className={"relative"}>
             <PaletteIcon />
             Start Customizing
+            <CustomizeBtn />
           </Button>
-          <div className="-z-1 inset-0 flex justify-between gap-3 transition-opacity group-hover:opacity-100 lg:absolute lg:-mx-12 lg:opacity-0">
+          <div className="pointer-events-none inset-0 flex justify-between gap-3 transition-opacity group-hover:opacity-100 lg:absolute lg:-mx-12 lg:opacity-0">
             <Button
               asChild
-              className="opacity-70 hover:opacity-100"
+              className="pointer-events-auto opacity-70 hover:opacity-100"
               variant={"outline"}
               size={"icon"}
             >
@@ -58,7 +60,7 @@ export default function HomePage() {
             </Button>
             <Button
               asChild
-              className="opacity-70 hover:opacity-100"
+              className="pointer-events-auto opacity-70 hover:opacity-100"
               variant={"outline"}
               size={"icon"}
             >

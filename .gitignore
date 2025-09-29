@@ -37,6 +37,8 @@ yarn-error.log*
 .DS_Store
 *.pem
 
+.idea
+
 .vscode
 todo_*
 tempCodeRunnerFile.*

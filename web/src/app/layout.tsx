@@ -114,7 +114,7 @@ export default function RootLayout({
         >
           {children}
           <ShadcnThemeEditor
-            side="right"
+            side="left"
             customColors={{ "--custom-color": "Custom Color" }}
           />
           <GithubCorner />

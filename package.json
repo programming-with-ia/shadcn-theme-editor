@@ -15,6 +15,8 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "del-cli": "^7.0.0",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
     "globals": "^16.3.0",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
